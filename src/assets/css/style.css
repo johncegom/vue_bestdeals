@@ -1,0 +1,284 @@
+/*	CSS Variables */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "./admin.css";
+
+:root {
+  --gold: #efde7a;
+  --lightpink: rgb(243, 233, 204);
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: arial, Helvetica, sans-serif;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  background: black;
+  max-height: 75px;
+}
+
+.header .hamburger {
+  border: none;
+  height: 65px;
+  width: 50px;
+  margin-top: 4px;
+  background: black;
+  color: var(--gold);
+}
+
+.hamburger > nav {
+  opacity: 1;
+  background: url(
+    https://assets.reebok.com/images/h_600,f_auto,q_auto:sensitive,fl_lossy/557b703ae71f4868b432a5e0010a3fc0_9366/Classic_Nylon_Black_6606_01_standard.jpg
+  );
+}
+
+#show-burger {
+  opacity: 0.8;
+  cursor: pointer;
+}
+#show-burger:hover {
+  opacity: 1;
+}
+
+.logo {
+  margin: auto;
+}
+
+.logo img {
+  max-width: 200px;
+  height: auto;
+}
+
+.form-inline {
+  display: none;
+}
+
+.header .user {
+  border: none;
+  background: black;
+  color: var(--gold);
+  margin-top: 25px;
+}
+
+.header-btn {
+  display: none;
+  margin-left: auto;
+  padding: 20px;
+}
+
+.header-btn a {
+  margin-right: 20px;
+  color: #efde7a;
+  text-decoration: none;
+}
+
+/* Modal */
+.signup-benefit {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.signup-benefit li {
+  font-size: 15px;
+  margin-top: 25px;
+  font-weight: 350;
+  color: rgb(87, 84, 84);
+}
+
+/* Navigation */
+.drop-nav {
+  display: none;
+}
+
+/* Content */
+.wrapper {
+  width: 100%;
+  margin: auto;
+}
+
+/* Carousel */
+
+.carousel-item img {
+  margin: auto;
+  max-height: 500px;
+}
+
+/* Showcase */
+.title {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.title hr {
+  position: relative;
+  bottom: 24px;
+  margin: 0;
+  border-top: 3px solid black;
+  z-index: -1;
+}
+
+.title h1 {
+  cursor: default;
+  display: table;
+  margin: auto;
+  font-weight: 600px;
+  font-family: Roboto Condensed;
+  text-transform: uppercase;
+  background: #5f500c;
+  color: white;
+}
+
+.showcase-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  text-align: center;
+}
+
+.showcase-items div img {
+  width: 100%;
+  max-height: 200px;
+}
+
+.showcase-items div img:hover {
+  opacity: 0.8;
+}
+
+.showcase-items div a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 2rem;
+  background: black;
+  color: var(--gold);
+  padding: 25px;
+  text-align: center;
+}
+
+/* PC Screen */
+@media (min-width: 980px) {
+  /* Header */
+
+  .header {
+    display: flexbox;
+  }
+
+  .logo {
+    margin-left: 100px;
+  }
+
+  .header .hamburger {
+    display: none;
+  }
+
+  .header .user {
+    display: none;
+  }
+
+  .header-btn {
+    display: flex;
+  }
+
+  .form-inline {
+    display: inline-flex;
+  }
+
+  .form-inline input[type="text"] {
+    width: 400px !important;
+  }
+
+  .header-btn a {
+    margin-right: 20px;
+    color: #efde7a;
+    text-decoration: none;
+  }
+
+  .open-button {
+    text-decoration: none;
+    height: 50px;
+  }
+
+  /* Modal */
+  .signup-benefit {
+    font-size: 30px;
+  }
+
+  .signup-benefit li {
+    font-size: 20px;
+    margin-left: 40px;
+  }
+
+  /* Navigation */
+  .main-nav {
+    background: var(--lightpink);
+    padding: 15px;
+  }
+
+  .drop-nav {
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .dropdown .dropdown-title {
+    text-decoration: none;
+    margin-right: 20px;
+  }
+
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+
+  /* Button */
+
+  #gotop-btn {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    bottom: 20px;
+    right: 30px;
+    background-color: black;
+    color: var(--gold);
+    border: 0;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  #gotop-btn:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  /* Content */
+  .wrapper {
+    width: 80%;
+  }
+
+  /* Carousel */
+
+  .carousel-item img {
+    margin: auto;
+  }
+
+  /* Showcase */
+  .showcase-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .showcase-items div img {
+    height: 200px;
+  }
+}
