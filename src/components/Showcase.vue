@@ -7,7 +7,7 @@
 
     <div class="showcase-items">
       <div :key="showcase.title" v-for="showcase in showcases">
-        <router-link v-bind:to="'/'+showcase.title">
+        <router-link :to="{name: 'ShowcaseDetails', params: {title: showcase.title, showcase}}">
           <img :src="showcase.img">
         </router-link>
         <router-link v-bind:to="'/'+showcase.title">

@@ -8,8 +8,8 @@
         <Carousel/>
       </div>
       <div class="col-sm-4">
-        <h3 class="text-center">{{title}}</h3>
-        <h4 class="text-center">Price</h4>
+        <h3 class="text-center">{{showcase.title}}</h3>
+        <h4 class="text-center">{{showcase.price}}₫</h4>
         <h4 class="text-center">Size</h4>
         <!-- <select v-model="size" class="size">
           <option value="39">39</option>
@@ -37,11 +37,13 @@ export default {
     Carousel,
     Footer
   },
+  props: {
+    showcase: {type: Object}
+  },
+
   data() {
     return {
-      title: this.$route.params.title,
-      size: '',
-      showcase: {}
+      // title: this.$route.params.title,
     }
   }
 };

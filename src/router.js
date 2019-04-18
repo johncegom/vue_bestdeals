@@ -54,7 +54,8 @@ const router = new Router({
     {
       path: "/:title",
       name: "ShowcaseDetails",
-      component: ShowcaseDetails
+      component: ShowcaseDetails,
+      props: true
     }
   ]
 });
