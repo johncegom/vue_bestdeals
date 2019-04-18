@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Showcase from "../components/Showcase";
+// import Showcase from "../components/Showcase";
 import Header from "../components/layout/Header";
 import Navigation from "../components/layout/Navigation";
 import Footer from "../components/layout/Footer";
@@ -19,7 +19,7 @@ export default {
   components: {
     Header,
     Navigation,
-    Showcase,
+    // Showcase,
     Footer
   },
   props: { 

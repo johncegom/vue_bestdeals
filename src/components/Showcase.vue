@@ -11,9 +11,9 @@
           <img :src="showcase.img">
         </router-link>
         <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase}}">
-          <p>{{ showcase.title }}</p>
+          <p class="link">{{ showcase.title }}</p>
         </router-link>
-        <p>{{ showcase.price }}₫</p>
+        <p class="price">{{ showcase.price }}₫</p>
       </div>
     </div>
   </div>
@@ -33,4 +33,21 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .link {
+    font-size: 18px;
+    color: black;
+  }
+
+  .link:hover {
+    color: blue;
+  }
+
+  .price {
+    font-weight: 800;
+    font-size: 17px;
+  }
+</style>
+
 

@@ -3,43 +3,9 @@
     <div class="drop-nav">
       <div class="dropdown" v-for="brand in brands" :key="brand.title">
         <router-link :to="{name: 'BrandShowcase', params: {brand: brand.title}}" class="dropdown-title" data-toggle="dropdown">{{brand.title}}</router-link>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" v-show="brand.children!=''">
           <router-link :to="{name: 'BrandShowcase', params: {brand: children}}" v-for="children in brand.children" :key="children" class="dropdown-item" >{{children}}</router-link>
         </div>
-      </div>
-
-      <div class="dropdown">
-        <router-link to="/" class="dropdown-title">Nike</router-link>
-        <div class="dropdown-menu">
-          <router-link to="/" class="dropdown-item">Flyknit</router-link>
-          <router-link to="/" class="dropdown-item">React</router-link>
-          <router-link to="/" class="dropdown-item">Air Jordan</router-link>
-          <router-link to="/" class="dropdown-item">Kobe Bryant</router-link>
-          <router-link to="/" class="dropdown-item">Air Force 1</router-link>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <router-link to="/" class="dropdown-title" data-toggle="dropdown">Air Max</router-link>
-        <div class="dropdown-menu">
-          <router-link to="/" class="dropdown-item">Air Max 1</router-link>
-          <router-link to="/" class="dropdown-item">Air Max 90</router-link>
-          <router-link to="/" class="dropdown-item">Air Max 95</router-link>
-          <router-link to="/" class="dropdown-item">Air Max 97</router-link>
-          <router-link to="/" class="dropdown-item">Air Max 270</router-link>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <router-link to="/" class="dropdown-title">Converse</router-link>
-      </div>
-
-      <div class="dropdown">
-        <router-link to="/" class="dropdown-title">Vans</router-link>
-      </div>
-
-      <div class="dropdown">
-        <router-link to="/" class="dropdown-title">Reebok</router-link>
       </div>
     </div>
   </nav>
@@ -56,15 +22,42 @@ export default {
           children: [
             'Stan Smith',
             'Yeezy',
-            'XAmlz'
+            'Utra Boost',
+            'NMD',
+            'Super Star'
           ]
         },
         {
           title: 'Nike',
           children: [
             'Flyknit',
-            'React'
+            'React',
+            'Air Jordan',
+            'Presto',
+            'Blazer'
           ]
+        },
+        {
+          title: 'Air Max',
+          children: [
+            'Air Max 1',
+            'Air Max 90',
+            'Air Max 95',
+            'Air Max 97',
+            'Air Max 270'
+          ]
+        },
+        {
+          title: 'Converse',
+          children: []
+        },
+        {
+          title: 'Vans',
+          children: []
+        },
+        {
+          title: 'Reebok',
+          children: []
         }
       ]
     }
