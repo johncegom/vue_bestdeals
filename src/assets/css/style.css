@@ -8,13 +8,11 @@
 }
 
 * {
+  box-sizing: border-box;
+  font-family: arial, Helvetica, sans-serif;
   margin: 0;
 }
 
-html {
-  box-sizing: border-box;
-  font-family: arial, Helvetica, sans-serif;
-}
 
 /* Header */
 
