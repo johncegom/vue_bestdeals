@@ -6,7 +6,8 @@ import ShowcaseDetails from "./views/ShowcaseDetails";
 import Overview from "./views/Overview.vue";
 import Products from "./views/Products.vue";
 import Orders from "./views/Orders.vue";
-import {fb} from './firebase.js';
+import BrandShowcase from "./views/BrandShowcase.vue";
+import { fb } from "./firebase.js";
 
 Vue.use(Router);
 
@@ -21,8 +22,8 @@ const router = new Router({
       path: "/admin",
       name: "admin",
       component: Admin,
-      meta: { 
-        requiresAuth: true 
+      meta: {
+        requiresAuth: true
       },
       children: [
         {
@@ -52,7 +53,13 @@ const router = new Router({
         import(/* webpackChunkName: "about" */ "./views/Author.vue")
     },
     {
-      path: "/:title",
+      path: "/:brand",
+      name: "BrandShowcase",
+      component: BrandShowcase,
+      props: true
+    },
+    {
+      path: "/:brand/:title",
       name: "ShowcaseDetails",
       component: ShowcaseDetails,
       props: true
@@ -61,21 +68,16 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  
-  const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
-  const currentUser = fb.auth().currentUser
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
+  const currentUser = fb.auth().currentUser;
 
   if (requiresAuth && !currentUser) {
-    next('/')
+    next("/");
+  } else if (requiresAuth && currentUser) {
+    next();
+  } else {
+    next();
   }
-  else if (requiresAuth && currentUser) {
-    next()
-  }
-  else {
-    next()
-  }
-
-
-})
+});
 
 export default router;

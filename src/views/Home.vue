@@ -39,6 +39,7 @@ export default {
         // First showcase
         [
           {
+            brand: 'Nike',
             title: "Nike React Element 87",
             img:
               "https://cdn.shopify.com/s/files/1/2031/6995/products/AQ1090004_1_1280x.jpg?v=1539175782",

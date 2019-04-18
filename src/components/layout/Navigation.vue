@@ -1,14 +1,10 @@
 <template>
   <nav class="main-nav" id="test">
     <div class="drop-nav">
-      <div class="dropdown">
-        <router-link to="/" class="dropdown-title" data-toggle="dropdown">Adidas</router-link>
+      <div class="dropdown" v-for="brand in brands" :key="brand.title">
+        <router-link :to="{name: 'BrandShowcase', params: {brand: brand.title}}" class="dropdown-title" data-toggle="dropdown">{{brand.title}}</router-link>
         <div class="dropdown-menu">
-          <router-link to="/" class="dropdown-item">Stan Smith</router-link>
-          <router-link to="/" class="dropdown-item">Yeezy</router-link>
-          <router-link to="/" class="dropdown-item">Ultra Boost</router-link>
-          <router-link to="/" class="dropdown-item">NMD</router-link>
-          <router-link to="/" class="dropdown-item">Superstar</router-link>
+          <router-link :to="{name: 'BrandShowcase', params: {brand: children}}" v-for="children in brand.children" :key="children" class="dropdown-item" >{{children}}</router-link>
         </div>
       </div>
 
@@ -54,13 +50,22 @@ export default {
   name: "Navigation",
   data() {
     return {
-      brand: [
-        'Adidas',
-        'Nike',
-        'Air Max', 
-        'Converse', 
-        'Vans',
-        'Reebok'
+      brands: [
+        {
+          title: 'Adidas',
+          children: [
+            'Stan Smith',
+            'Yeezy',
+            'XAmlz'
+          ]
+        },
+        {
+          title: 'Nike',
+          children: [
+            'Flyknit',
+            'React'
+          ]
+        }
       ]
     }
   }
