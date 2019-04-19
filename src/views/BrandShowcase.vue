@@ -35,7 +35,7 @@ export default {
 <style scoped>
   p {
     height: 500px;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 25px;
     text-align: center;
   }

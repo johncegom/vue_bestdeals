@@ -26,8 +26,8 @@
     </div>
 
     <div class="header-btn">
-      <a data-toggle="modal" href="#signin">Sign In</a>
-      <a data-toggle="modal" href="#signup">Sign Up</a>
+      <a class="myButton" data-toggle="modal" href="#signin">Sign In</a>
+      <a class="myButton" data-toggle="modal" href="#signup">Sign Up</a>
     </div>
 
     <HamburgerContent/>
@@ -51,6 +51,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+</style>
 
 
 

@@ -58,6 +58,10 @@ export default {
         {
           title: 'Reebok',
           children: []
+        },
+        {
+          title: 'New Balance',
+          children: []
         }
       ]
     }

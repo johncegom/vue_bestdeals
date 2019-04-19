@@ -80,6 +80,24 @@ html {
   text-decoration: none;
 }
 
+.myButton {
+  text-decoration: none;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  height: 40px;
+  padding-top: 7px;
+  margin-right: 8px;
+  border-radius: 8px;
+  bottom: 3px;
+  position: relative;
+  width: 100px;
+  cursor: pointer;
+  text-align: center;
+}
+.myButton:hover {
+  background: white;
+}
+
 /* Modal */
 .signup-benefit {
   font-size: 15px;
