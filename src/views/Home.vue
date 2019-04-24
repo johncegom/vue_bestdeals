@@ -54,7 +54,7 @@ export default {
             img: "https://i1.adis.ws/i/jpl/jd_1204269_a?qlt=80&w=600&h=425&v=1",
             price: "3.590.000",
             sizes: [
-              40, 41, 42, 43
+              42, 43
             ]
           },
           {
@@ -74,12 +74,12 @@ export default {
               "http://justfreshkicks.com/wp-content/uploads/2018/05/Nike-Zoom-Fly-Be-True.jpg",
             price: "2.700.000",
             sizes: [
-              40, 41, 42, 43
+              40, 41, 42
             ]
           },
           {
             brand: "Nike",
-            title: "Nike  ",
+            title: "Nike",
             img:
               "http://www.mymounthope.ca/images/cashoes/Genuine-NIKE-SKY-FORCE-88-MID-VNTG-BLACK-Black-Nike-Mens-BASKETBALL-SHO03241487.jpg",
             price: "3.590.000",
@@ -89,7 +89,7 @@ export default {
           },
           {
             brand: "Nike",
-            title: "Nike 2 ",
+            title: "Nike 2",
             img:
               "https://sneakernews.com/wp-content/uploads/2014/08/nike-tennis-best-of-4.jpg",
             price: "3.590.000",
@@ -99,7 +99,7 @@ export default {
           },
           {
             brand: "Nike",
-            title: "1 ",
+            title: "1",
             img:
               "http://www.mapforid.it/media/import/Images/nike%20air%20jordan%201%20retro%20uomo-394cxr.jpg",
             price: "3.590.000",
@@ -109,7 +109,7 @@ export default {
           },
           {
             brand: "Reebok",
-            title: "Reebok ",
+            title: "Reebok",
             img:
               "http://www.local510.ca/images/inngasge/shoes-Black-reebok-classic-streetboro-blk-Mens-J93277-Canada-online-sale.jpg",
             price: "3.590.000",
@@ -132,7 +132,7 @@ export default {
         [
           {
             brand: "Adidas",
-            title: "Adidas",
+            title: "Adidas 1",
             img:
               "http://www.pnbpampernailbar.com/images/530de/adidas-basketball-shoes-adizero-derrick-rose-rose-1-home-65NF.jpg",
             price: "2.800.000",
@@ -172,7 +172,7 @@ export default {
           },
           {
             brand: "New Balance",
-            title: "New Balance Numeric 505 ",
+            title: "New Balance Numeric 505",
             img:
               "http://www.peverellplumbingandheating.co.uk/images/large/img/NM505infoa3a41626595818b_LRG.jpg",
             price: "1.850.000",
@@ -182,7 +182,7 @@ export default {
           },
           {
             brand: "Converse",
-            title: "f ",
+            title: "f",
             img:
               "https://oriasshop.cdn.shoprenter.hu/custom/oriasshop/image/cache/w900h500/Term%C3%A9kek/f%C3%A9rfi%20cip%C5%91k/Converse/M9613_01-500x500.jpg?lastmod=1497348212.1498566185",
             price: "3.590.000",
@@ -192,7 +192,7 @@ export default {
           },
           {
             brand: "Reebok",
-            title: "g ",
+            title: "g",
             img: "https://basketzone.net/zdjecia/zdjecia/1320.jpg",
             price: "3.590.000",
             sizes: [
@@ -201,12 +201,12 @@ export default {
           },
           {
             brand: "Vans",
-            title: "Vans SK8-Hi Pro ",
+            title: "Vans SK8-Hi Pro",
             img:
               "https://deszkascuccok.cdn.shoprenter.hu/custom/deszkascuccok/image/cache/w900h500wt1/15%20vans%20cip%C5%91/sk8-hi-blk1.jpg?lastmod=-62169987600.1502784957",
             price: "1.500.000",
             sizes: [
-              40, 41, 42, 43
+              39, 41, 42
             ]
           },
           {

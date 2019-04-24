@@ -57,9 +57,6 @@ html {
   height: auto;
 }
 
-.form-inline {
-  display: none;
-}
 
 .header .user {
   border: none;
@@ -70,7 +67,6 @@ html {
 
 .header-btn {
   display: none;
-  margin-left: auto;
   padding: 20px;
 }
 
@@ -207,14 +203,6 @@ footer {
 
   .header-btn {
     display: flex;
-  }
-
-  .form-inline {
-    display: inline-flex;
-  }
-
-  .form-inline input[type="text"] {
-    width: 400px !important;
   }
 
   .header-btn a {

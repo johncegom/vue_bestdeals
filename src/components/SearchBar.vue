@@ -10,7 +10,7 @@
         >
       </div>
       <div class="table-cell">
-        <button @click="GetSearch" class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        <button @click="GetSearch" class="btn btn-outline-light my-2 my-sm-0" type="submit"><img src="../assets/img/search.png" alt="Search img"></button>
       </div>
     </form>
   </div>
@@ -26,16 +26,34 @@ export default {
 	},
 	methods: {
 		GetSearch(){
-			
+      alert('Chua co lam bam cai gi')
 		}
 	}
 }
 </script>
 
-<style>
+<style scoped>
+
+button {
+  background: #000;
+}
+
+button > img {
+  height: 25px;
+  transition: all ease 300ms;
+}
+
+button:hover {
+  background: black;
+}
+
+button > img:hover {
+  transform: rotate(120deg);
+}
 
 .form-inline {
-	margin-top: 17px;
+  margin-top: 17px;
+  display: none;
 }
 
 @media (min-width: 980px) {
@@ -44,7 +62,7 @@ export default {
 }
 
 .form-inline input[type=text]{
-	width:350px !important;
+	width:300px !important;
 }
 }
 </style>

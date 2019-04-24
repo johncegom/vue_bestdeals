@@ -11,18 +11,10 @@
 
     <SearchBar/>
 
-    <div class="dropdown">
-      <button class="user" data-toggle="dropdown">
-        <i class="fas fa-user fa-2x"></i>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" data-toggle="modal" href="#signin">
-          <i class="fas fa-lock"></i>
-        </a>
-        <a class="dropdown-item" data-toggle="modal" href="#signup">
-          <i class="fas fa-pencil-alt"></i>
-        </a>
-      </div>
+    <div class="shoppingcart">
+      <router-link to="/">
+        <i class="fas fa-shopping-cart fa-2x"></i>
+      </router-link>
     </div>
 
     <div class="header-btn">
@@ -38,6 +30,7 @@
 import SearchBar from "../SearchBar";
 import HamburgerContent from "../HamburgerContent";
 import $ from "jquery";
+
 export default {
   name: "Header",
   components: {
@@ -49,10 +42,35 @@ export default {
       $(".page-wrapper").addClass("toggled");
     }
   }
+
 };
 </script>
 
 <style scoped>
+.shoppingcart {
+  margin-right: 5px;
+}
+
+.shoppingcart i {
+  height: 25px;
+  transition: all ease 300ms;
+}
+
+
+.shoppingcart i:hover {
+  transform: rotate(25deg);
+}
+
+.shoppingcart i {
+  margin-top: 25px;
+  color: var(--gold);
+}
+
+@media (min-width: 980px) {
+.shoppingcart {
+  margin-left: auto;
+}
+}
 </style>
 
 

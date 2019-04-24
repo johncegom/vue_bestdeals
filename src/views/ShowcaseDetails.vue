@@ -11,12 +11,26 @@
         <p class="text-center brand">{{showcase.brand}}</p>
         <h3 class="text-center">{{showcase.title}}</h3>
         <h4 class="text-center price">{{showcase.price}}₫</h4>
-        <h4>
-          <span>Size EU &nbsp;</span>
-          <a href="#">Size Guide</a>
-        </h4>
+        <div>
+          <h4 class="text-center">
+            <span>Size EU &nbsp;</span>
+            <a href="#">Size Guide</a>
+          </h4>
+          <div id="testtt">
+          <button
+            @click="GetSize()"
+            type="button"
+            class="myButton"
+            v-for="size in showcase.sizes"
+            :key="size"
+            :value="size"
+          >{{size}}</button>
+        </div>
+        </div>
 
-        <button type="button" class="myButton" v-for="size in showcase.sizes" :key="size">{{size}}</button>
+        <div>
+          <button id="AddToCart" class="myButton">Add To Cart</button>
+        </div>
       </div>
     </div>
 
@@ -42,7 +56,16 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      ChoseSize: null
+    };
+  },
+
+  methods: {
+    GetSize() {
+    const ChoseSize = $(this).val();
+      alert(ChoseSize);
+    }
   }
 };
 </script>
@@ -64,12 +87,18 @@ export default {
   width: 47px;
 }
 
+#testtt {
+  margin: auto;
+}
+
 .myButton {
   background: black;
   padding-bottom: 10px;
 }
 
-
+#AddToCart {
+  margin-left: 50px;
+}
 
 .price {
   font-weight: 650;
