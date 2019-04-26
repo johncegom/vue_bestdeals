@@ -26,7 +26,7 @@ export default {
 	},
 	methods: {
 		GetSearch(){
-      alert('Chua co lam bam cai gi')
+      alert('Under Construction')
 		}
 	}
 }

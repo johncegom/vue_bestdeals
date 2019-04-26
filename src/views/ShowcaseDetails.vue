@@ -2,7 +2,8 @@
   <div>
     <Header/>
     <Navigation/>
-
+    <br>
+    
     <div class="row">
       <div class="col-sm-5">
         <img class="img-fluid" :src="showcase.img">
