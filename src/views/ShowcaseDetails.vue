@@ -11,7 +11,7 @@
       <div class="col-sm-7">
         <p class="text-center brand">{{showcase.brand}}</p>
         <h3 class="text-center">{{showcase.title}}</h3>
-        <h4 class="text-center price">{{showcase.price}}₫</h4>
+        <h4 class="text-center price">{{showcase.saleprice}}₫</h4>
         <div>
           <h4 class="text-center">
             <span>Size EU &nbsp;</span>
