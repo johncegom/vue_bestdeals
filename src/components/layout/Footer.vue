@@ -24,7 +24,12 @@
         <br>
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a href="https://www.facebook.com/johncegom" target="_blank" rel="nofollow" class="fbbg facebookicon">
+            <a
+              href="https://www.facebook.com/johncegom"
+              target="_blank"
+              rel="nofollow"
+              class="fbbg facebookicon"
+            >
               <span>
                 <i class="fab fa-facebook-f"></i>
               </span>
@@ -68,6 +73,11 @@ p a {
   color: var(--gold);
   text-decoration: none;
 }
+
+li a {
+  transition: all 150ms ease-in-out;
+}
+
 .iconbg,
 .fbbg {
   border-radius: 50%;
