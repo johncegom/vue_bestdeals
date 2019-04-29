@@ -2,9 +2,9 @@
   <nav class="main-nav" id="test">
     <div class="drop-nav">
       <div class="dropdown" v-for="brand in brands" :key="brand.title">
-        <router-link :to="{name: 'BrandShowcase', params: {brand: brand.title}}" class="dropdown-title" data-toggle="dropdown">{{brand.title}}</router-link>
-        <div class="dropdown-menu" v-show="brand.children!=''">
-          <router-link :to="{name: 'BrandShowcase', params: {brand: children}}" v-for="children in brand.children" :key="children" class="dropdown-item" >{{children}}</router-link>
+        <router-link :to="{name: 'BrandShowcase', params: {brand: brand.title, showcases}}" class="dropdown-title" data-toggle="dropdown">{{brand.title}}</router-link>
+        <div class="dropdown-menu" v-if="brand.children!=''">
+          <router-link :to="{name: 'BrandShowcase', params: {brand: children, showcases}}" v-for="children in brand.children" :key="children" class="dropdown-item" >{{children}}</router-link>
         </div>
       </div>
     </div>
@@ -14,6 +14,9 @@
 <script>
 export default {
   name: "Navigation",
+  props: {
+    showcases: {type: Array}
+  },
   data() {
     return {
       brands: [

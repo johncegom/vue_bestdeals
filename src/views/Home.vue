@@ -3,7 +3,7 @@
     <Header/>
     <Signin/>
     <Signup/>
-    <Navigation/>
+    <Navigation :showcases="showcases"/>
     <div class="wrapper">
       <Carousel :showcases="showcases[1]"/>
       <Showcase title="Flash Sales" :showcases="showcases[0]"/>
@@ -39,7 +39,7 @@ export default {
         // First showcase
         [
           {
-            brand: "Nike",
+            brand: "Nike React",
             title: "Nike React Element 87",
             img:
               "https://cdn.shopify.com/s/files/1/2031/6995/products/AQ1090004_1_1280x.jpg?v=1539175782",
@@ -93,7 +93,7 @@ export default {
             ]
           },
           {
-            brand: "Nike",
+            brand: "Nike Air Max 1",
             title: "Air Max 1",
             img:
               "https://cdn5.kicksonfire.com/wp-content/uploads/2018/03/Nike-Air-Max-1-Habanero-Red-2.jpg?x77451",
@@ -206,7 +206,7 @@ export default {
             ]
           },
           {
-            brand: "Adidas",
+            brand: "Adidas Stan Smith",
             title: "Adidas Stan Smith",
             img: "http://yanki.info.tr/UrunImages/M20325-1.jpg",
             saleprice: "1.600.000",

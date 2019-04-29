@@ -4,7 +4,7 @@
     <Navigation/>
 
     <div class="wrapper">
-      <h1>{{brand}} Shoes</h1>
+      <h1>{{brand}}</h1>
       <div class="row">
         <div class="sidebar col-md-3">
           <div class="sidebar-item">
@@ -70,17 +70,19 @@
 
           <div class="brandshowcase">
             <div class="brandshowcase-items">
-              <div v-for="n in 8" :key="n">
-                <router-link to="/">
-                  <img
-                    class="img-fluid"
-                    src="https://stockx.imgix.net/Adidas-Human-Race-NMD-Pharrell-You-Nerd.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1538080256"
-                  >
+              <div :key="showcase.title" v-for="showcase in filteredShowcases">
+                <router-link
+                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase}}"
+                >
+                  <img class="showcase-items-img" :src="showcase.img">
                 </router-link>
-                <router-link to="/">
-                  <p class="link">Ten giay</p>
+                <router-link
+                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase}}"
+                >
+                  <p class="link">{{ showcase.title }}</p>
                 </router-link>
-                  <p class="price">x.xxx.xxx₫</p>
+                <span class="sale" v-show="showcase.price != '' ">{{showcase.price}}₫</span>
+                <p class="price">{{ showcase.saleprice }}₫</p>
               </div>
             </div>
           </div>
@@ -105,14 +107,26 @@ export default {
     Footer
   },
   props: {
-    brand: { type: Array }
+    brand: { type: String },
+    showcases: { type: Array }
   },
   data() {
-    return {};
+    return {
+      filteredShowcases: []
+    };
   },
   methods: {
     GetSearch() {
       alert("Under construction");
+    }
+  },
+  created() {
+    for (let i = 0; i <= this.showcases.length - 1; i++) {
+      for (let j = 0; j <= this.showcases[i].length - 1; j++) {
+        if (this.showcases[i][j].brand.includes(this.brand)) {
+          this.filteredShowcases.push(this.showcases[i][j]);
+        }
+      }
     }
   }
 };
@@ -142,7 +156,6 @@ h3 {
 .checkbox {
   padding-left: 10px;
 }
-
 
 .link {
   font-size: 18px;
@@ -178,6 +191,12 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px;
   text-align: center;
+}
+
+.showcase-items-img {
+  width: 100%;
+  min-height: 150px;
+  max-height: 200px;
 }
 
 .brandshowcase-items div a {
