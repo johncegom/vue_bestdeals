@@ -7,10 +7,10 @@
 
     <div class="showcase-items">
       <div :key="showcase.title" v-for="showcase in showcases">
-        <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase}}">
+        <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}">
           <img class="img-fluid" :src="showcase.img">
         </router-link>
-        <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase}}">
+        <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}">
           <p class="link">{{ showcase.title }}</p>
         </router-link>
           <span class="sale" v-show="showcase.price != '' ">{{showcase.price}}₫</span>

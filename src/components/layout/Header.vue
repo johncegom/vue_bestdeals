@@ -22,7 +22,7 @@
       <a class="myButton" data-toggle="modal" href="#signup">Sign Up</a>
     </div>
 
-    <HamburgerContent/>
+    <HamburgerContent :showcases="showcases"/>
   </header>
 </template>
 
@@ -36,6 +36,9 @@ export default {
   components: {
     SearchBar,
     HamburgerContent
+  },
+  props: {
+    showcases: { type: Array }
   },
   methods: {
     ShowSidebar() {

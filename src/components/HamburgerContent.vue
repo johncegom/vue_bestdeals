@@ -13,36 +13,12 @@
         </div>
         <div class="sidebar-item sidebar-menu">
           <ul>
-            <li>
-              <router-link to="/Adidas">
-                <span class="menu-text">Adidas</span>
+            <li v-for="brand in brands" :key="brand.title">
+              <router-link :to="{name: 'BrandShowcase', params: {brand: brand.title, showcases}}">
+                <span class="menu-text">{{brand.title}}</span>
               </router-link>
             </li>
-            <li>
-              <router-link to="/Nike">
-                <span class="menu-text">Nike</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/Air Max">
-                <span class="menu-text">Air Max</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/Converse">
-                <span class="menu-text">Converse</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/Vans">
-                <span class="menu-text">Vans</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/Reebok">
-                <span class="menu-text">Reebok</span>
-              </router-link>
-            </li>
+            
 
             <hr>
 
@@ -54,7 +30,6 @@
                 <a data-toggle="modal" href="#signup">Sign Up</a>
               </li>
             </ul>
-
           </ul>
         </div>
       </div>
@@ -70,12 +45,55 @@ export default {
   components: {
     SearchBar
   },
+  props: {
+    showcases: { type: Array }
+  },
   methods: {
     CloseSidebar() {
       $(".page-wrapper").removeClass("toggled");
     }
+  },
+  data() {
+    return {
+      brands: [
+        {
+          title: "Adidas",
+          children: ["Stan Smith", "Yeezy", "Utra Boost", "NMD", "Super Star"]
+        },
+        {
+          title: "Nike",
+          children: ["Flyknit", "React", "Air Jordan", "Presto", "Blazer"]
+        },
+        {
+          title: "Air Max",
+          children: [
+            "Air Max 1",
+            "Air Max 90",
+            "Air Max 95",
+            "Air Max 97",
+            "Air Max 270"
+          ]
+        },
+        {
+          title: "Converse",
+          children: []
+        },
+        {
+          title: "Vans",
+          children: []
+        },
+        {
+          title: "Reebok",
+          children: []
+        },
+        {
+          title: "New Balance",
+          children: []
+        }
+      ]
+    }
   }
-};
+}
 </script>
 
 <style scoped>

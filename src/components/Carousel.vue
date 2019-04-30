@@ -7,7 +7,7 @@
       <li data-target="#carouselIndicators" data-slide-to="3"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-      <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcases[5].brand, title: showcases[5].title, showcase: showcases[5]}}" class="carousel-item active">
+      <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcases[5].brand, title: showcases[5].title, showcase: showcases[5], showcases}}" class="carousel-item active">
         <img
           class="d-block w-100"
           :src="showcases[5].img"
@@ -15,7 +15,7 @@
           data-holder-rendered="true"
         >
       </router-link>
-      <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcases[n].brand, title: showcases[n].title, showcase: showcases[n]}}" class="carousel-item" v-for="n in 3" :key="showcases[n].title">
+      <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcases[n].brand, title: showcases[n].title, showcase: showcases[n], showcases}}" class="carousel-item" v-for="n in 3" :key="showcases[n].title">
         <img
           class="d-block w-100"
           :src="showcases[n].img"

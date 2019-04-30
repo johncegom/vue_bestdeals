@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header/>
+    <Header :showcases="showcases"/>
     <Signin/>
     <Signup/>
     <Navigation :showcases="showcases"/>

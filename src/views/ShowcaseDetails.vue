@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header/>
-    <Navigation/>
+    <Navigation :showcases="showcases"/>
     <br>
 
     <div class="row">
@@ -61,7 +61,8 @@ export default {
     Footer
   },
   props: {
-    showcase: { type: Object }
+    showcase: { type: Object },
+    showcases: { type: Array }
   },
 
   data() {

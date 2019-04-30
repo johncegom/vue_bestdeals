@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header/>
-    <Navigation/>
+    <Header :showcases="showcases"/>
+    <Navigation :showcases="showcases"/>
 
     <div class="wrapper">
       <h1>{{brand}}</h1>
@@ -72,12 +72,12 @@
             <div class="brandshowcase-items">
               <div :key="showcase.title" v-for="showcase in filteredShowcases">
                 <router-link
-                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase}}"
+                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}"
                 >
                   <img class="showcase-items-img" :src="showcase.img">
                 </router-link>
                 <router-link
-                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase}}"
+                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}"
                 >
                   <p class="link">{{ showcase.title }}</p>
                 </router-link>
@@ -128,8 +128,21 @@ export default {
         }
       }
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.filteredShowcases = [];
+    for (let i = 0; i <= this.showcases.length - 1; i++) {
+      for (let j = 0; j <= this.showcases[i].length - 1; j++) {
+        if (this.showcases[i][j].brand.includes(to.params.brand)) {
+          this.filteredShowcases.push(this.showcases[i][j]);
+        }
+      }
+    }
+    next()
   }
-};
+}
+
+
 </script>
 
 <style scoped>
