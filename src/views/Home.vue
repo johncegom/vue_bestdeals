@@ -5,9 +5,9 @@
     <Signup/>
     <Navigation :showcases="showcases"/>
     <div class="wrapper">
-      <Carousel :showcases="showcases[1]"/>
-      <Showcase title="Flash Sales" :showcases="showcases[0]"/>
-      <Showcase title="New Arrival" :showcases="showcases[1]"/>
+      <Carousel :showcases="showcases"/>
+      <Showcase title="Flash Sales" :showcases_s="showcases[0]" :showcases="showcases"/>
+      <Showcase title="New Arrival" :showcases_s="showcases[1]" :showcases="showcases"/>
     </div>
     <Footer/>
   </div>
@@ -44,7 +44,7 @@ export default {
             img:
               "https://cdn.shopify.com/s/files/1/2031/6995/products/AQ1090004_1_1280x.jpg?v=1539175782",
             saleprice: "2.800.000",
-            price: "",
+            price: "2.950.000",
             sizes: [
               40, 41, 42, 43
             ]
@@ -54,7 +54,7 @@ export default {
             title: "Nike Epic React Flyknit 2",
             img: "https://i1.adis.ws/i/jpl/jd_1204269_a?qlt=80&w=600&h=425&v=1",
             saleprice: "3.590.000",
-            price: "",
+            price: "3.789.000",
             sizes: [
               42, 43
             ]
@@ -65,7 +65,7 @@ export default {
             img:
               "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F12%2Fadidas-yeezy-boost-700-v2-static-store-list-1-e1545536030742.jpg?q=75&w=800&cbr=1&fit=max",
             saleprice: "10.990.000",
-            price: "",
+            price: "11.567.890",
             sizes: [
               40, 41, 42, 43
             ]
@@ -76,7 +76,7 @@ export default {
             img:
               "http://justfreshkicks.com/wp-content/uploads/2018/05/Nike-Zoom-Fly-Be-True.jpg",
             saleprice: "2.700.000",
-            price: "",
+            price: "2.890.000",
             sizes: [
               40, 41, 42
             ]
@@ -87,7 +87,7 @@ export default {
             img:
               "http://www.getacandy.com/images/J5KuX8b1wo8c/Antimicrobial-nike-leather-elite-white-runner-1I7A.jpg",
             saleprice: "1.850.000",
-            price: "",
+            price: "1.900.000",
             sizes: [
               40, 41, 42, 43
             ]
@@ -98,7 +98,7 @@ export default {
             img:
               "https://cdn5.kicksonfire.com/wp-content/uploads/2018/03/Nike-Air-Max-1-Habanero-Red-2.jpg?x77451",
             saleprice: "2.750.000",
-            price: "",
+            price: "2.765.000",
             sizes: [
               40.5, 41, 42, 42.5, 43
             ]
@@ -109,7 +109,7 @@ export default {
             img:
               "https://i.pinimg.com/originals/f9/35/6d/f9356d6acb513d4a49988b4d337e039e.jpg",
             saleprice: "1.390.000",
-            price: "",
+            price: "1.540.000",
             sizes: [
               40, 41, 42, 43
             ]
@@ -120,7 +120,7 @@ export default {
             img:
               "https://www.streetprorunning.com/images/cargador/productos/imagen-2-17419-c97e3628-7534-NORMAL.jpg",
             saleprice: "1.845.000",
-            price: "",
+            price: "2.000.000",
             sizes: [
               40, 41, 42, 43
             ]

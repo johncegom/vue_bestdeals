@@ -6,7 +6,7 @@
     </div>
 
     <div class="showcase-items">
-      <div :key="showcase.title" v-for="showcase in showcases">
+      <div :key="showcase.title" v-for="showcase in showcases_s">
         <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}">
           <img class="img-fluid" :src="showcase.img">
         </router-link>
@@ -26,7 +26,8 @@ export default {
   name: "Showcase",
   props: {
     title: String,
-    showcases: { type: Array}
+    showcases: { type: Array},
+    showcases_s: {type: Array}
   },
   data() {
     return {

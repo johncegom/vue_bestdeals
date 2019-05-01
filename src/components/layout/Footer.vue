@@ -8,7 +8,7 @@
       </div>
       <div class="col">
         <h3>Best Deals - 100% Authentic</h3>
-        <p>Address: Số 69 Ly Thai To Street - District 1 - Ho Chi Minh City</p>
+        <p>Address: 69 Ly Thai To Street - District 1 - Ho Chi Minh City</p>
         <p>
           Hotline:
           <a href="tel:0337xxxxx9">0337 xxx xxx</a>
