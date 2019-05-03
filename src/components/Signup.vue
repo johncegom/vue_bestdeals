@@ -10,7 +10,7 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-6">
+            <div class="col-md-6 col-4">
               <form data-toggle="validator">
                 <div class="form-group">
                   <i class="fas fa-font"></i>
@@ -64,7 +64,7 @@
               </form>
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6 col-8">
               <ul class="signup-benefit">
                 Create an account with us and you'll be able to:
                 <li>Receive discount information.</li>

@@ -1,77 +1,229 @@
 <template>
   <div>
-    <Showcase title="Testing" :showcases="showcases[0]"/>
+    <Header :showcases="showcases"/>
+    <Navigation :showcases="showcases"/>
+
+    <div class="wrapper">
+      <h1>{{brand}}</h1>
+      <div class="row">
+        <div class="sidebar col-md-3">
+          <div class="sidebar-item">
+            <h3>Price</h3>
+            <div class="table-cell input-group">
+              <input placeholder="minimum..." type="text" class="form-control">
+              <input placeholder="maximum..." type="text" class="form-control">
+              <div class="input-group-append">
+                <span class="input-group-text" id>₫</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-item">
+            <h3>Size</h3>
+            <div class="checkbox">
+              <div>
+                <input type="checkbox">
+                <label>&nbsp; 38</label>
+              </div>
+
+              <div>
+                <input type="checkbox">
+                <label>&nbsp; 39</label>
+              </div>
+              <div>
+                <input type="checkbox">
+                <label>&nbsp; 40</label>
+              </div>
+              <div>
+                <input type="checkbox">
+                <label>&nbsp; 42</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content col-md-9">
+          <nav class="paginationnav">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#!" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#!">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#!">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#!">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#!" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="brandshowcase">
+            <div class="brandshowcase-items">
+              <div :key="showcase.title" v-for="showcase in filteredShowcases">
+                <router-link
+                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}"
+                >
+                  <img class="showcase-items-img" :src="showcase.img">
+                </router-link>
+                <router-link
+                  :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}"
+                >
+                  <p class="link">{{ showcase.title }}</p>
+                </router-link>
+                <span class="sale" v-show="showcase.price != '' ">{{showcase.price}}₫</span>
+                <p class="price">{{ showcase.saleprice }}₫</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import Showcase from "../components/Showcase";
+// import Showcase from "../components/Showcase";
+import Header from "../components/layout/Header";
+import Navigation from "../components/layout/Navigation";
+import Footer from "../components/layout/Footer";
 export default {
   name: "BrandShowcase",
   components: {
-    Showcase
+    Header,
+    Navigation,
+    // Showcase,
+    Footer
+  },
+  props: {
+    brand: { type: String },
+    showcases: { type: Array }
   },
   data() {
     return {
-      showcases: [
-        {
-          title: "Nike React Element 87",
-          img:
-            "https://cdn.shopify.com/s/files/1/2031/6995/products/AQ1090004_1_1280x.jpg?v=1539175782",
-          price: "2.800.000"
-        },
-        {
-          title: "Nike Epic React Flyknit 2",
-          img: "https://i1.adis.ws/i/jpl/jd_1204269_a?qlt=80&w=600&h=425&v=1",
-          price: "3.590.000"
-        },
-        {
-          title: "Yeezy static v2 700",
-          img:
-            "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F12%2Fadidas-yeezy-boost-700-v2-static-store-list-1-e1545536030742.jpg?q=75&w=800&cbr=1&fit=max",
-          price: "10.990.000"
-        },
-        {
-          title: "Nike Zoom Fly",
-          img:
-            "http://justfreshkicks.com/wp-content/uploads/2018/05/Nike-Zoom-Fly-Be-True.jpg",
-          price: "2.700.000"
-        },
-        {
-          title: "Nike  ",
-          img:
-            "http://www.mymounthope.ca/images/cashoes/Genuine-NIKE-SKY-FORCE-88-MID-VNTG-BLACK-Black-Nike-Mens-BASKETBALL-SHO03241487.jpg",
-          price: "3.590.000"
-        },
-        {
-          title: "Nike 2 ",
-          img:
-            "https://sneakernews.com/wp-content/uploads/2014/08/nike-tennis-best-of-4.jpg",
-          price: "3.590.000"
-        },
-        {
-          title: "1 ",
-          img:
-            "http://www.mapforid.it/media/import/Images/nike%20air%20jordan%201%20retro%20uomo-394cxr.jpg",
-          price: "3.590.000"
-        },
-        {
-          title: "Reebok ",
-          img:
-            "http://www.local510.ca/images/inngasge/shoes-Black-reebok-classic-streetboro-blk-Mens-J93277-Canada-online-sale.jpg",
-          price: "3.590.000"
-        },
-        {
-          title: "Reebok 1",
-          img:
-            "https://sneakerbardetroit.com/wp-content/uploads/2018/06/Reebok-Workout-3-AM-NOLA-Pack-2.jpg",
-          price: "3.590.000"
-        }
-      ]
+      filteredShowcases: []
     };
+  },
+  methods: {
+    GetSearch() {
+      alert("Under construction");
+    }
+  },
+  created() {
+    for (let i = 0; i <= this.showcases.length - 1; i++) {
+      for (let j = 0; j <= this.showcases[i].length - 1; j++) {
+        if (this.showcases[i][j].brand.includes(this.brand)) {
+          this.filteredShowcases.push(this.showcases[i][j]);
+        }
+      }
+    }
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.filteredShowcases = [];
+    for (let i = 0; i <= this.showcases.length - 1; i++) {
+      for (let j = 0; j <= this.showcases[i].length - 1; j++) {
+        if (this.showcases[i][j].brand.includes(to.params.brand)) {
+          this.filteredShowcases.push(this.showcases[i][j]);
+        }
+      }
+    }
+    next()
   }
-};
+}
+
+
 </script>
 
 <style scoped>
+p {
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+}
+
+h3 {
+  background: lightgray;
+  padding: 10px;
+}
+
+.sidebar-item {
+  border: 1px solid lightgray;
+  padding-bottom: 5px;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
+.checkbox {
+  padding-left: 10px;
+}
+
+.link {
+  font-size: 18px;
+  color: black;
+}
+
+.link:hover {
+  color: blue;
+}
+
+.price {
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.sale {
+  text-decoration: line-through;
+  font-weight: 700;
+  color: red;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+.paginationnav {
+  background: lightgray;
+  padding: 10px;
+}
+
+.brandshowcase-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  text-align: center;
+}
+
+.showcase-items-img {
+  width: 100%;
+  min-height: 150px;
+  max-height: 200px;
+}
+
+.brandshowcase-items div a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.brandshowcase-items div img:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 980px) {
+  .brandshowcase-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 </style>

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <Header/>
+    <Header :showcases="showcases"/>
     <Signin/>
     <Signup/>
-    <Navigation/>
+    <Navigation :showcases="showcases"/>
     <div class="wrapper">
-      <Carousel :showcases="showcases[0]"/>
-      <Showcase title="Flash Sales" :showcases="showcases[0]"/>
-      <Showcase title="New Arrival" :showcases="showcases[1]"/>
+      <Carousel :showcases="showcases"/>
+      <Showcase title="Flash Sales" :showcases_s="showcases[0]" :showcases="showcases"/>
+      <Showcase title="New Arrival" :showcases_s="showcases[1]" :showcases="showcases"/>
     </div>
     <Footer/>
   </div>
@@ -39,113 +39,203 @@ export default {
         // First showcase
         [
           {
+            brand: "Nike React",
             title: "Nike React Element 87",
             img:
               "https://cdn.shopify.com/s/files/1/2031/6995/products/AQ1090004_1_1280x.jpg?v=1539175782",
-            price: "2.800.000"
+            saleprice: "2.800.000",
+            price: "2.950.000",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
+            brand: "Nike",
             title: "Nike Epic React Flyknit 2",
             img: "https://i1.adis.ws/i/jpl/jd_1204269_a?qlt=80&w=600&h=425&v=1",
-            price: "3.590.000"
+            saleprice: "3.590.000",
+            price: "3.789.000",
+            sizes: [
+              42, 43
+            ]
           },
           {
-            title: "Yeezy static v2 700",
+            brand: "Yeezy",
+            title: "Yeezy Static v2 700",
             img:
               "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F12%2Fadidas-yeezy-boost-700-v2-static-store-list-1-e1545536030742.jpg?q=75&w=800&cbr=1&fit=max",
-            price: "10.990.000"
+            saleprice: "10.990.000",
+            price: "11.567.890",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
+            brand: "Nike",
             title: "Nike Zoom Fly",
             img:
               "http://justfreshkicks.com/wp-content/uploads/2018/05/Nike-Zoom-Fly-Be-True.jpg",
-            price: "2.700.000"
+            saleprice: "2.700.000",
+            price: "2.890.000",
+            sizes: [
+              40, 41, 42
+            ]
           },
           {
-            title: "Nike  ",
+            brand: "Nike",
+            title: "Classic Cortez",
             img:
-              "http://www.mymounthope.ca/images/cashoes/Genuine-NIKE-SKY-FORCE-88-MID-VNTG-BLACK-Black-Nike-Mens-BASKETBALL-SHO03241487.jpg",
-            price: "3.590.000"
+              "http://www.getacandy.com/images/J5KuX8b1wo8c/Antimicrobial-nike-leather-elite-white-runner-1I7A.jpg",
+            saleprice: "1.850.000",
+            price: "1.900.000",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "Nike 2 ",
+            brand: "Nike Air Max 1",
+            title: "Air Max 1",
             img:
-              "https://sneakernews.com/wp-content/uploads/2014/08/nike-tennis-best-of-4.jpg",
-            price: "3.590.000"
+              "https://cdn5.kicksonfire.com/wp-content/uploads/2018/03/Nike-Air-Max-1-Habanero-Red-2.jpg?x77451",
+            saleprice: "2.750.000",
+            price: "2.765.000",
+            sizes: [
+              40.5, 41, 42, 42.5, 43
+            ]
           },
           {
-            title: "1 ",
+            brand: "Reebok",
+            title: "Classic Phase 1",
             img:
-              "http://www.mapforid.it/media/import/Images/nike%20air%20jordan%201%20retro%20uomo-394cxr.jpg",
-            price: "3.590.000"
+              "https://i.pinimg.com/originals/f9/35/6d/f9356d6acb513d4a49988b4d337e039e.jpg",
+            saleprice: "1.390.000",
+            price: "1.540.000",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "Reebok ",
+            brand: "New Balance",
+            title: "New Balance 574",
             img:
-              "http://www.local510.ca/images/inngasge/shoes-Black-reebok-classic-streetboro-blk-Mens-J93277-Canada-online-sale.jpg",
-            price: "3.590.000"
+              "https://www.streetprorunning.com/images/cargador/productos/imagen-2-17419-c97e3628-7534-NORMAL.jpg",
+            saleprice: "1.845.000",
+            price: "2.000.000",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "Reebok 1",
+            brand: "Converse",
+            title: "Cons Auck Ultra",
             img:
-              "https://sneakerbardetroit.com/wp-content/uploads/2018/06/Reebok-Workout-3-AM-NOLA-Pack-2.jpg",
-            price: "3.590.000"
+              "https://www.converse.com.vn/pictures/catalog/products/sneakers/cons/158389c/158389.jpg",
+            saleprice: "900.000",
+            price: "1.300.000",
+            sizes: [
+              40, 41, 42, 43
+            ]
           }
         ],
         // Second showcase
         [
           {
-            title: "a",
+            brand: "Converse",
+            title: "Chuck 70 Psy-Kicks High",
             img:
-              "http://www.pnbpampernailbar.com/images/530de/adidas-basketball-shoes-adizero-derrick-rose-rose-1-home-65NF.jpg",
-            price: "2.800.000"
+              "https://converse.com.vn/pictures/catalog/products/sneakers/chuck-taylor-all-star/164209c/164209.jpg",
+            saleprice: "1.700.000",
+            price: "",
+            sizes: [
+              39.5, 40, 41, 42, 42.5
+            ]
           },
           {
-            title: "b",
+            brand: "Adidas",
+            title: "NMD R1",
             img:
-              "http://www.mymounthope.ca/images/cashoes/Harvest-Time-Sale-ADIDAS-ORIGINALS-CIERO-MAROON-RED-UPDATE-Red-Adidas-Mens86795477.jpg",
-            price: "3.590.000"
+              "https://www.adidasirelandsale.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/y/by3123-adidas-nmd-2.jpg",
+            saleprice: "2.890.000",
+            price: "",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "c",
+            brand: "Converse",
+            title: "One Star Academy",
             img:
-              "http://2app.kicksonfire.com/kofapp/upload/events_master_images/ipad_34f3a7e54ea84ccc89bf61c8f4cb54865b4d2b65977ff.jpg",
-            price: "10.990.000"
+              "https://converse.com.vn/pictures/catalog/products/sneakers/cons/163270v/163270VA1.jpg",
+            saleprice: "10.990.000",
+            price: "",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "d",
+            brand: "Adidas",
+            title: "Samba OG",
             img:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4A6e6ai_PwqYDp0C-FSvGe4xebNVTFurQsF9vseik2H52quxw",
-            price: "2.700.000"
+              "https://www.orangejungle.de/106296-tm_large_default/adidas-originals-samba-classic-og-mig-vintage-white-core-black-gum.jpg",
+            saleprice: "2.800.000",
+            price: "",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "e ",
+            brand: "New Balance",
+            title: "Numeric 505",
             img:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5-4GTp8vOgTtvfnGw4t-xwIld5rXbocA_RKrg-GGudrtBQD7k",
-            price: "3.590.000"
+              "http://www.peverellplumbingandheating.co.uk/images/large/img/NM505infoa3a41626595818b_LRG.jpg",
+            saleprice: "1.850.000",
+            price: "",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "f ",
+            brand: "Converse",
+            title: "Chuck Taylor All Star 70",
             img:
               "https://oriasshop.cdn.shoprenter.hu/custom/oriasshop/image/cache/w900h500/Term%C3%A9kek/f%C3%A9rfi%20cip%C5%91k/Converse/M9613_01-500x500.jpg?lastmod=1497348212.1498566185",
-            price: "3.590.000"
+            saleprice: "1.400.000",
+            price: "",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "g ",
-            img: "https://basketzone.net/zdjecia/zdjecia/1320.jpg",
-            price: "3.590.000"
+            brand: "Adidas Stan Smith",
+            title: "Adidas Stan Smith",
+            img: "http://yanki.info.tr/UrunImages/M20325-1.jpg",
+            saleprice: "1.600.000",
+            price: "",
+            sizes: [
+              40, 41, 42, 43
+            ]
           },
           {
-            title: "555 ",
+            brand: "Vans",
+            title: "Vans SK8-Hi Pro",
             img:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVOQaCPU1s79kSt3ud7Oygd-MuksFmhvoqT-2ssX7iykTbrYKH",
-            price: "3.590.000"
+              "https://deszkascuccok.cdn.shoprenter.hu/custom/deszkascuccok/image/cache/w900h500wt1/15%20vans%20cip%C5%91/sk8-hi-blk1.jpg?lastmod=-62169987600.1502784957",
+            saleprice: "1.500.000",
+            price: "",
+            sizes: [
+              39, 41, 42
+            ]
           },
           {
-            title: "2222",
+            brand: "Converse",
+            title: "Jack Purcell Jack Wanderer",
             img:
-              "https://cdn.shopify.com/s/files/1/0970/9552/products/Sept-18-61.jpg?v=1544513359",
-            price: "3.590.000"
+              "https://www.converse.com.vn/pictures/catalog/products/sneakers/jack-purcell/162563c/162563.jpg",
+            saleprice: "1.500.000",
+            price: "",
+            sizes: [
+              40, 41, 42, 43
+            ]
           }
         ]
       ]
@@ -153,3 +243,5 @@ export default {
   }
 };
 </script>
+
+

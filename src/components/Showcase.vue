@@ -1,19 +1,26 @@
 <template>
   <div class="showcase">
-    <div class="title">
+    <div class="title" v-show="title != ''">
       <h1>{{title}}</h1>
       <hr>
     </div>
 
     <div class="showcase-items">
-      <div :key="showcase.title" v-for="showcase in showcases">
-        <router-link :to="{name: 'ShowcaseDetails', params: {title: showcase.title, showcase}}">
-          <img :src="showcase.img">
+      <div :key="showcase.title" v-for="showcase in showcases_s">
+        <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}">
+          <img class="img-fluid" :src="showcase.img">
         </router-link>
+<<<<<<< HEAD
         <router-link :to="{name: 'ShowcaseDetails', params: {title: showcase.title, showcase}}">
           <p>{{ showcase.title }}</p>
+=======
+        <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}">
+          <p class="link">{{ showcase.title }}</p>
+>>>>>>> develop
         </router-link>
-        <p>{{ showcase.price }}₫</p>
+          <span class="sale" v-show="showcase.price != '' ">{{showcase.price}}₫</span>
+          <p class="price">{{ showcase.saleprice }}₫</p>
+
       </div>
     </div>
   </div>
@@ -24,7 +31,8 @@ export default {
   name: "Showcase",
   props: {
     title: String,
-    showcases: { type: Array}
+    showcases: { type: Array},
+    showcases_s: {type: Array}
   },
   data() {
     return {
@@ -33,4 +41,27 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .link {
+    font-size: 18px;
+    color: black;
+  }
+
+  .link:hover {
+    color: blue;
+  }
+
+  .price {
+    font-weight: 800;
+    font-size: 17px;
+  }
+
+  .sale {
+    text-decoration: line-through;
+    font-weight: 700;
+    color: red;
+  }
+</style>
+
 

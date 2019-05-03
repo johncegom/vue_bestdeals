@@ -55,9 +55,6 @@
   height: auto;
 }
 
-.form-inline {
-  display: none;
-}
 
 .header .user {
   border: none;
@@ -68,7 +65,6 @@
 
 .header-btn {
   display: none;
-  margin-left: auto;
   padding: 20px;
 }
 
@@ -76,6 +72,24 @@
   margin-right: 20px;
   color: #efde7a;
   text-decoration: none;
+}
+
+.myButton {
+  text-decoration: none;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  height: 40px;
+  padding-top: 7px;
+  margin-right: 8px;
+  border-radius: 8px;
+  bottom: 3px;
+  position: relative;
+  width: 100px;
+  cursor: pointer;
+  text-align: center;
+}
+.myButton:hover {
+  background: white;
 }
 
 /* Modal */
@@ -189,14 +203,6 @@ footer {
     display: flex;
   }
 
-  .form-inline {
-    display: inline-flex;
-  }
-
-  .form-inline input[type="text"] {
-    width: 400px !important;
-  }
-
   .header-btn a {
     margin-right: 20px;
     color: #efde7a;
@@ -276,7 +282,5 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .showcase-items div img {
-    height: 200px;
-  }
+
 }
