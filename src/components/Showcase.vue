@@ -10,13 +10,8 @@
         <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}">
           <img class="img-fluid" :src="showcase.img">
         </router-link>
-<<<<<<< HEAD
-        <router-link :to="{name: 'ShowcaseDetails', params: {title: showcase.title, showcase}}">
-          <p>{{ showcase.title }}</p>
-=======
         <router-link :to="{name: 'ShowcaseDetails', params: {brand: showcase.brand, title: showcase.title, showcase, showcases}}">
           <p class="link">{{ showcase.title }}</p>
->>>>>>> develop
         </router-link>
           <span class="sale" v-show="showcase.price != '' ">{{showcase.price}}₫</span>
           <p class="price">{{ showcase.saleprice }}₫</p>
