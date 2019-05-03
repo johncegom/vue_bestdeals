@@ -10,11 +10,11 @@
           <div class="sidebar-item">
             <h3>Price</h3>
             <div class="table-cell input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id>₫</span>
-              </div>
               <input placeholder="minimum..." type="text" class="form-control">
               <input placeholder="maximum..." type="text" class="form-control">
+              <div class="input-group-append">
+                <span class="input-group-text" id>₫</span>
+              </div>
             </div>
           </div>
 

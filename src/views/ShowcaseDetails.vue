@@ -20,7 +20,6 @@
           </h6>
           <div id="center">
             <button
-              @click="GetSize()"
               type="button"
               class="myButton"
               v-for="size in showcase.sizes"
@@ -55,6 +54,41 @@
                       <p>5.5</p>
                       <p>38.5</p>
                       <p>24</p>
+
+                      <p>6.5</p>
+                      <p>6</p>
+                      <p>39</p>
+                      <p>24.5</p>
+
+                      <p>7</p>
+                      <p>6</p>
+                      <p>40</p>
+                      <p>25</p>
+
+                      <p>7.5</p>
+                      <p>6.5</p>
+                      <p>40.5</p>
+                      <p>25.5</p>
+
+                      <p>8</p>
+                      <p>7</p>
+                      <p>41</p>
+                      <p>26</p>
+
+                      <p>8.5</p>
+                      <p>7.5</p>
+                      <p>42</p>
+                      <p>26.5</p>
+
+                      <p>9</p>
+                      <p>8</p>
+                      <p>42.5</p>
+                      <p>27</p>
+
+                      <p>9.5</p>
+                      <p>8.5</p>
+                      <p>43</p>
+                      <p>27.5</p>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -69,12 +103,44 @@
                       <p>1.5</p>
                       <p>34.5</p>
                       <p>21</p>
+
+                      <p>4.5</p>
+                      <p>2</p>
+                      <p>35</p>
+                      <p>21.5</p>
+
+                      <p>5</p>
+                      <p>2.5</p>
+                      <p>35.5</p>
+                      <p>22</p>
+
+                      <p>5.5</p>
+                      <p>3</p>
+                      <p>36</p>
+                      <p>22.5</p>
+
+                      <p>6</p>
+                      <p>3.5</p>
+                      <p>36.5</p>
+                      <p>23</p>
+
+                      <p>6.5</p>
+                      <p>4</p>
+                      <p>37.5</p>
+                      <p>23.5</p>
+
+                      <p>7</p>
+                      <p>4.5</p>
+                      <p>38</p>
+                      <p>24</p>
+
+                      <p>7.5</p>
+                      <p>5</p>
+                      <p>38.5</p>
+                      <p>24.5</p>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" @click="signin">Sign In</button>
               </div>
             </div>
           </div>
@@ -129,9 +195,6 @@ export default {
   },
 
   methods: {
-    GetSize() {
-      console.log(this.ChoseSize);
-    },
     range(min, max) {
       var array = [],
         j = 0;

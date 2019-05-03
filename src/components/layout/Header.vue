@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <button class="hamburger" @click="ShowSidebar">
+    <button class="hamburger" @click="ShowSidebar()">
       <i class="fas fa-bars"></i>
     </button>
     <div class="logo">

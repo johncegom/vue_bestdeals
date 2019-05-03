@@ -3,7 +3,7 @@
     <nav class="sidebar-wrapper">
       <div class="sidebar-content">
         <div class="sidebar-item sidebar-brand">
-          <a href="#" @click="CloseSidebar">
+          <a href="#" @click="CloseSidebar()">
             <img id="burger-icon" src="../assets/img/icon.png" alt="logo">
           </a>
           <a href="#" @click="CloseSidebar">Best Deals</a>
@@ -38,12 +38,10 @@
 </template>
 
 <script>
-import SearchBar from "./SearchBar";
 
 export default {
   name: "HamburgerContent",
   components: {
-    SearchBar
   },
   props: {
     showcases: { type: Array }
