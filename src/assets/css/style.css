@@ -121,6 +121,7 @@
 .carousel-item img {
   margin: auto;
   max-height: 500px;
+  object-fit: contain;
 }
 
 /* Showcase */
@@ -158,6 +159,7 @@
 .showcase-items div img {
   width: 100%;
   max-height: 200px;
+  object-fit: contain;
 }
 
 .showcase-items div img:hover {
