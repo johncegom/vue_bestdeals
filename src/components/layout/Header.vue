@@ -9,7 +9,7 @@
       </router-link>
     </div>
 
-    <SearchBar/>
+    <SearchBar class="hide"/>
 
     <div class="shoppingcart">
       <router-link to="/">
@@ -69,11 +69,20 @@ export default {
   color: var(--gold);
 }
 
+.hide {
+  display: none;
+}
+
 @media (min-width: 980px) {
 .shoppingcart {
   margin-left: auto;
 }
+
+.hide {
+  display: initial;
 }
+}
+
 </style>
 
 

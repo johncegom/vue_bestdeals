@@ -21,6 +21,7 @@
                     id="firstname"
                     name="firstname"
                     v-model="firstname"
+                    required
                   >
                 </div>
                 <div class="form-group">
@@ -32,12 +33,13 @@
                     id="lastname"
                     name="lastname"
                     v-model="lastname"
+                    required
                   >
                 </div>
                 <div class="form-group">
                   <i class="fas fa-user-alt"></i>
                   <label for="email">Email Address:</label>
-                  <input type="email" class="form-control" id="email" name="email" v-model="email">
+                  <input type="email" class="form-control" id="email" name="email" v-model="email" required>
                 </div>
                 <div class="form-group">
                   <i class="fas fa-lock"></i>
@@ -48,6 +50,7 @@
                     id="pwd"
                     name="password"
                     v-model="password"
+                    required
                   >
                 </div>
                 <div class="form-group">
@@ -59,6 +62,7 @@
                     id="pwd"
                     name="Password"
                     v-model="confirmpassword"
+                    required
                   >
                 </div>
               </form>

@@ -9,6 +9,7 @@
           </button>
         </div>
         <div class="modal-body">
+        <form action="#" class="was-validated">
           <div class="form-group w-75 m-auto">
             <i class="fas fa-user-alt"></i>
             <label for="email">Email:</label>
@@ -20,8 +21,12 @@
               placeholder="Your email"
               v-model="email"
               @keyup.enter="signin"
+              required
             >
+            
+            <div class="invalid-feedback">Please enter your email..</div>
           </div>
+
           <div class="form-group w-75 m-auto">
             <i class="fas fa-lock"></i>
             <label for="pwd">Password:</label>
@@ -33,11 +38,14 @@
               placeholder="Your password"
               v-model="password"
               @keyup.enter="signin"
+              required
             >
+            <div class="invalid-feedback">Please enter your password.</div>
           </div>
           <div class="m-auto w-75">
             <input type="checkbox" name="remember" id="rememberbox"> Remember me
           </div>
+        </form>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" @click="signin">Sign In</button>
