@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+require ("firebase/firestore");
 
 // Initialize Firebase
 var config = {
@@ -10,4 +11,7 @@ var config = {
   messagingSenderId: "630718185273"
 };
 
-export const fb = firebase.initializeApp(config);
+const fb = firebase.initializeApp(config);
+const db = firebase.firestore();
+
+export {fb,db}

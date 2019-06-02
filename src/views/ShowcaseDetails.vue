@@ -262,6 +262,9 @@ a.SizeGuide:hover {
 
 .image-border {
   border: 1px solid lightgray;
+  width: 100%;
+  object-fit: contain;
+  height: 450px;
 }
 
 .description {
