@@ -26,7 +26,9 @@
 					<label>Price</label>
 					<input type="text" class="form-control" placeholder="Enter normal price...."	v-model="shoes.price">
 				</div>
-				<button type="button" class="myButton" @click="saveData">Add</button>
+				<button v-show="edit === false" type="button" class="myButton" @click="saveData">Add</button>
+				<button v-show="edit === true" @click="updateProduct()" type="button" class="btn btn-primary">Save Changes</button>
+				<button v-show="edit === true" @click="cancel()" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
 			</div>
 			<br>
 			<h3>Products List</h3>
@@ -92,7 +94,7 @@
 					</div>
 					<div class="modal-footer">
 						<button @click="updateProduct()" type="button" class="btn btn-primary">Save Changes</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-danger">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -117,7 +119,8 @@ export default {
 				saleprice: null,
 				price: null
 			},
-			activeitem: null
+			activeitem: null,
+			edit: false
 		}
 	},
 	methods: {
@@ -152,7 +155,8 @@ export default {
 			}
 		},
 		editProduct(shoe){
-			$('#edit').modal('show');
+			// $('#edit').modal('show');
+			this.edit = true;
 			this.shoes = shoe.data();
 			this.activeitem = shoe.id;
 		},
@@ -165,14 +169,21 @@ export default {
 				this.shoes.saleprice = null;
 				this.shoes.price = null;
 				this.watcher();
-				$('#edit').modal('hide');
-				this.watcher();
+				this.edit = false;
 				$('#alert').text("Data has been updated!");
 				$('#alert').addClass("alert alert-success");
 			})
 			.catch(function(error) {
 				alert("Error: ", error);
 			});
+		},
+		cancel() {
+			this.shoes.brand = null;
+			this.shoes.title = null;
+			this.shoes.quantities = null;
+			this.shoes.saleprice = null;
+			this.shoes.price = null;
+			this.edit = false;
 		},
 		reset() {
 			// Object.assign(this.$data, this.$options.data.apply(this));
