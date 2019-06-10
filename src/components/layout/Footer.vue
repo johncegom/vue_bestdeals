@@ -1,12 +1,12 @@
 <template>
   <footer>
     <div class="row">
-      <div class="col">
+      <div class="col-6">
         <router-link to="/">
           <img id="logo" src="../../assets/img/logo.png" alt>
         </router-link>
       </div>
-      <div class="col">
+      <div class="col-6">
         <h3>Best Deals - 100% Authentic</h3>
         <p>Address: 69 Ly Thai To Street - District 1 - Ho Chi Minh City</p>
         <p>

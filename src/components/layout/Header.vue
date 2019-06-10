@@ -10,6 +10,8 @@
     </div>
 
     <SearchBar class="hide"/>
+    <Signin />
+    <Signup />
 
     <div class="shoppingcart">
       <router-link to="/">
@@ -30,12 +32,17 @@
 import SearchBar from "../SearchBar";
 import HamburgerContent from "../HamburgerContent";
 import $ from "jquery";
+import Signin from "../Signin.vue";
+import Signup from "../Signup.vue";
+
 
 export default {
   name: "Header",
   components: {
     SearchBar,
-    HamburgerContent
+    HamburgerContent,
+    Signin,
+    Signup
   },
   props: {
     showcases: { type: Array }

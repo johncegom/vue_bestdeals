@@ -210,6 +210,7 @@ ul {
   width: 100%;
   min-height: 150px;
   max-height: 200px;
+  object-fit: contain;
 }
 
 .brandshowcase-items div a {
