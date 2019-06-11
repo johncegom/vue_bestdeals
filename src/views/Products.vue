@@ -3,35 +3,9 @@
 		<div class="container">
 			<div id="alert"></div>
 			<h1>Products</h1>
-			<h3>Basic CRUD</h3>
-			<div class="product-crud">
-				
-				<div class="form-group">
-					<label>Brand</label>
-					<input type="text" class="form-control" placeholder="Enter shoes brand..." v-model="shoes.brand">
-				</div>
-				<div class="form-group">
-					<label>Name</label>
-					<input type="text" class="form-control" placeholder="Enter shoes name..." v-model="shoes.title">
-				</div>
-				<div class="form-group">
-					<label>Quantities</label>
-					<input type="text" class="form-control" placeholder="Enter shoes quantities..." v-model="shoes.quantities">
-				</div>
-				<div class="form-group">
-					<label>Sale Price</label>
-					<input type="text" class="form-control" placeholder="Enter discount price..."	v-model="shoes.saleprice">
-				</div>
-				<div class="form-group">
-					<label>Price</label>
-					<input type="text" class="form-control" placeholder="Enter normal price...."	v-model="shoes.price">
-				</div>
-				<button v-show="edit === false" type="button" class="myButton" @click="saveData">Add</button>
-				<button v-show="edit === true" @click="updateProduct()" type="button" class="btn btn-primary">Save Changes</button>
-				<button v-show="edit === true" @click="cancel()" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-			</div>
 			<br>
-			<h3>Products List</h3>
+			<h3 class="d-inline-block">Products List</h3>
+			<button @click="addNew()" class="myButton float-right">Add New</button>
 			<table class="table">
 				<thead>
 					<tr>
@@ -46,11 +20,11 @@
 
 				<tbody>
 					<tr v-for="shoe in allshoes" :key="shoe.title">
-						<td>{{shoe.data().brand}}</td>
-						<td>{{shoe.data().title}}</td>
-						<td>{{shoe.data().quantities}}</td>
-						<td>{{shoe.data().price}}</td>
-						<td>{{shoe.data().saleprice}}</td>
+						<td>{{shoe.brand}}</td>
+						<td>{{shoe.title}}</td>
+						<td>{{shoe.quantities}}</td>
+						<td>{{shoe.price}}</td>
+						<td>{{shoe.saleprice}}</td>
 						<td>
 							<button @click="editProduct(shoe)" class="btn btn-primary">Edit</button>
 							<button @click="deleteProduct(shoe.id)" class="btn btn-danger">Delete</button>
@@ -60,7 +34,7 @@
 			</table>
 
 <!-- Modal -->
-			<div class="modal" id="edit">
+			<div class="modal" id="shoes">
 			<div class="modal-dialog modal-xl">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -70,31 +44,49 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<div class="form-group">
-							<label>Brand</label>
-							<input type="text" class="form-control" placeholder="Enter shoes brand..." v-model="shoes.brand">
-						</div>
-						<div class="form-group">
-							<label>Name</label>
-							<input type="text" class="form-control" placeholder="Enter shoes name..." v-model="shoes.title">
-						</div>
-						<div class="form-group">
-							<label>Quantities</label>
-							<input type="text" class="form-control" placeholder="Enter shoes quantities..." v-model="shoes.quantities">
-						</div>
-						<div class="form-group">
-							<label>Sale Price</label>
-							<input type="text" class="form-control" placeholder="Enter discount price..."	v-model="shoes.saleprice">
-						</div>
-						<div class="form-group">
-							<label>Price</label>
-							<input type="text" class="form-control" placeholder="Enter normal price...."	v-model="shoes.price">
-						</div>
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label>Name</label>
+									<input type="text" class="form-control" placeholder="Enter shoes name..." v-model="shoes.title">
+								</div>
+								<div class="form-group">
+									<label>Description</label>
+									<textarea rows="5" cols="50" class="form-control" v-model="shoes.description">Shoes description...</textarea>
+								</div>
+								<div class="form-group">
+									<label>Images</label>
+									<input type="file" @change="uploadImage()" class="form-control">
+								</div>
+							</div>
 
+							<div class="col-6">
+								<div class="form-group">
+									<label>Brand</label>
+									<input type="text" class="form-control" placeholder="Enter shoes brand..." v-model="shoes.brand">
+								</div>
+								
+								<div class="form-group">
+									<label>Quantities</label>
+									<input type="text" class="form-control" placeholder="Enter shoes quantities..." v-model="shoes.quantities">
+								</div>
+								<div class="form-group">
+									<label>Sale Price</label>
+									<input type="text" class="form-control" placeholder="Enter discount price..."	v-model="shoes.saleprice">
+								</div>
+								<div class="form-group">
+									<label>Price</label>
+									<input type="text" class="form-control" placeholder="Enter normal price...."	v-model="shoes.price">
+								</div>
+							
+							</div>
+
+						</div>
 					</div>
 					<div class="modal-footer">
-						<button @click="updateProduct()" type="button" class="btn btn-primary">Save Changes</button>
-						<button type="button" class="btn btn-danger">Cancel</button>
+						<button v-if="edit == false" @click="addShoes()" type="button" class="btn btn-primary">Add</button>
+						<button v-if="edit == true" @click="updateProduct()" type="button" class="btn btn-primary">Save Changes</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -117,88 +109,70 @@ export default {
 				title: null,
 				quantities: null,
 				saleprice: null,
-				price: null
+				price: null,
+				description: null,
+				image: null
 			},
 			activeitem: null,
 			edit: false
 		}
 	},
+	firestore() {
+		return {
+			allshoes: db.collection('shoes')
+		}
+	},
 	methods: {
-		saveData() {
-			db.collection("shoes").add(this.shoes)
-			.then((docRef) => {
-				$('#alert').text("Data has been added!");
-				$('#alert').addClass("alert alert-success");
-				this.reset();
-			})
-			.catch(function(error){
-				alert("Error adding document: ", error);
-			});
+		addNew() {
+			this.edit = false;
+			$('#shoes').modal('show');
 		},
-		readData() {
-			db.collection("shoes").get().then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					this.allshoes.push(doc);
-				});
-			});
+		addShoes() {
+			this.$firestore.allshoes.add(this.shoes);
+			$('#shoes').modal('hide');
+			Toast.fire({
+						type: 'success',
+						title: 'Add successfully!'
+					})
 		},
 		deleteProduct(doc){
-			if(confirm('Are you sure? ')) {
-				db.collection("shoes").doc(doc).delete()
-				.then(function() {
-				$('#alert').text("Data has been deleted!");
-				$('#alert').addClass("alert alert-danger");
-				})
-				.catch(function(error) {
-					alert("Error: ", error);
-				});
-			}
+			Swal.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonColor : '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!',
+				cancelButtonText: 'No!'
+			}).then((result) => {
+				if (result.value) {
+				
+					this.$firestore.allshoes.doc(doc).delete()
+
+					Toast.fire({
+						type: 'success',
+						title: 'Delete successfully!'
+					})
+				}
+			})
 		},
 		editProduct(shoe){
-			// $('#edit').modal('show');
+			$('#shoes').modal('show');
+			this.shoes = shoe;
 			this.edit = true;
-			this.shoes = shoe.data();
-			this.activeitem = shoe.id;
 		},
 		updateProduct(){
-			db.collection("shoes").doc(this.activeitem).update(this.shoes)
-			.then(() => {
-				this.shoes.brand = null;
-				this.shoes.title = null;
-				this.shoes.quantities = null;
-				this.shoes.saleprice = null;
-				this.shoes.price = null;
-				this.watcher();
-				this.edit = false;
-				$('#alert').text("Data has been updated!");
-				$('#alert').addClass("alert alert-success");
+			this.$firestore.allshoes.doc(this.shoes.id).update(this.shoes);
+			$('#shoes').modal('hide');		
+			Toast.fire({
+				type: 'success',
+				title: 'Update successfully!'
 			})
-			.catch(function(error) {
-				alert("Error: ", error);
-			});
-		},
-		cancel() {
-			this.shoes.brand = null;
-			this.shoes.title = null;
-			this.shoes.quantities = null;
-			this.shoes.saleprice = null;
-			this.shoes.price = null;
-			this.edit = false;
-		},
-		reset() {
-			// Object.assign(this.$data, this.$options.data.apply(this));
-		},
-		watcher() {
-			db.collection("shoes").onSnapshot((querySnapshot) => {
-				this.allshoes = [];
-				querySnapshot.forEach((doc) => {
-					this.allshoes.push(doc);
-				});
-			});
 		}
 	},
 	created() {
-		this.readData();
+
 	}
 }
 </script>

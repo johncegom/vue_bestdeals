@@ -73,8 +73,11 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           $('#signin').modal('hide');
-          alert("Dang nhap thanh cong!");
-          this.$router.replace('admin');
+          Toast.fire({
+            type: 'success',
+            title: 'Signed in successfully'
+          })
+          this.$router.replace('admin/overview');
 
         })
         .catch(function(error) {
@@ -82,9 +85,15 @@ export default {
           var errorCode = error.code;
           var errorMessage = error.message;
           if (errorCode === "auth/wrong-password") {
-            alert("Wrong password.");
+            Toast.fire({
+              type: 'warning',
+              title: 'Wrong password!'
+            });
           } else {
-            alert(errorMessage);
+            Toast.fire({
+              type: 'warning',
+              title: errorMessage,
+            });
           }
         });
     }

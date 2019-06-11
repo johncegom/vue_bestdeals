@@ -102,6 +102,10 @@ export default {
     logout() {
       fb.auth().signOut()
       .then(() => {
+        Toast.fire({
+          type: 'success',
+          title: 'Signed out successfully'
+        })
         this.$router.replace('/');
       })
       .cath((err) => {
