@@ -8,7 +8,7 @@
         <div class="sidebar-content">
           <!-- sidebar-brand  -->
           <div class="sidebar-item sidebar-brand">
-            <a href="#">Bestdeals</a>
+            <a href="#" @click="CloseSidebar">Bestdeals</a>
             <div id="close-sidebar" @click="CloseSidebar">
               <i class="fas fa-times fa-2x"></i>
             </div>
@@ -69,6 +69,12 @@
                 <router-link to="/admin/orders">
                   <i class="fa fa-shopping-cart"></i>
                   <span class="menu-text">Orders</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdown">
+                <router-link to="/admin/profile">
+                  <i class="fa fa-user"></i>
+                  <span class="menu-text">Profile</span>
                 </router-link>
               </li>
               <li class="sidebar-dropdown">

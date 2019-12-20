@@ -1,4 +1,7 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/firebase-auth';
+import 'firebase/storage';
 require ("firebase/firestore");
 
 // Initialize Firebase

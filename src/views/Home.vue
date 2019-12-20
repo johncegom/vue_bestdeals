@@ -17,6 +17,7 @@ import Carousel from "../components/Carousel";
 import Header from "../components/layout/Header";
 import Navigation from "../components/layout/Navigation";
 import Footer from "../components/layout/Footer";
+import {fb,db} from '../firebase.js';
 
 export default {
   name: "Home",
@@ -29,6 +30,7 @@ export default {
   },
   data() {
     return {
+      test: [],
       showcases: [
         // First showcase
         [
@@ -233,8 +235,13 @@ export default {
           }
         ]
       ]
-    };
-  }
+    }
+  },
+  firestore() {
+		return {
+			test: db.collection('shoes')
+		}
+	}
 };
 </script>
 
