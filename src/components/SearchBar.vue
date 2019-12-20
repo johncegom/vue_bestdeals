@@ -3,7 +3,7 @@
     <form class="form-inline">
       <div class="table-cell">
         <input
-          class="form-control mr-sm-2"
+          class="form-control mr-sm-2 input-logo"
           @keyup.enter="GetSearch"
           type="text"
           placeholder="Search..."
@@ -36,6 +36,7 @@ export default {
 
 button {
   background: #000;
+  display: none;
 }
 
 button > img {
@@ -53,16 +54,23 @@ button > img:hover {
 
 .form-inline {
   margin-top: 17px;
-  display: none;
+}
+
+.input-logo {  
+background-image:url("../assets/img/search1.png");   
+background-position:right;   
+background-repeat:no-repeat;
+
 }
 
 @media (min-width: 980px) {
-.form-inline {
-  display: inline-flex;
+
+button {
+  display: initial;
 }
 
-.form-inline input[type=text]{
-	width:300px !important;
+.input-logo {
+  background-image: none;
 }
 }
 </style>

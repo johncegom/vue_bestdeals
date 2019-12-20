@@ -13,6 +13,11 @@
         </div>
         <div class="sidebar-item sidebar-menu">
           <ul>
+
+            <SearchBar class="burger-search"/>
+
+            <hr>
+
             <li v-for="brand in brands" :key="brand.title">
               <router-link :to="{name: 'BrandShowcase', params: {brand: brand.title, showcases}}">
                 <span class="menu-text">{{brand.title}}</span>
@@ -38,10 +43,12 @@
 </template>
 
 <script>
+import SearchBar from "./SearchBar.vue";
 
 export default {
   name: "HamburgerContent",
   components: {
+    SearchBar
   },
   props: {
     showcases: { type: Array }
@@ -103,6 +110,7 @@ export default {
 #burger-icon:hover {
   opacity: 1;
 }
+
 
 hr {
   border-color: white;

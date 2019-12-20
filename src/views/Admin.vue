@@ -8,7 +8,7 @@
         <div class="sidebar-content">
           <!-- sidebar-brand  -->
           <div class="sidebar-item sidebar-brand">
-            <a href="#">Bestdeals</a>
+            <a href="#" @click="CloseSidebar">Bestdeals</a>
             <div id="close-sidebar" @click="CloseSidebar">
               <i class="fas fa-times fa-2x"></i>
             </div>
@@ -72,6 +72,12 @@
                 </router-link>
               </li>
               <li class="sidebar-dropdown">
+                <router-link to="/admin/profile">
+                  <i class="fa fa-user"></i>
+                  <span class="menu-text">Profile</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdown">
                 <a href="#" @click="logout()">
                   <i class="fa fa-power-off"></i>
                   <span class="menu-text">Logout</span>
@@ -102,6 +108,10 @@ export default {
     logout() {
       fb.auth().signOut()
       .then(() => {
+        Toast.fire({
+          type: 'success',
+          title: 'Signed out successfully'
+        })
         this.$router.replace('/');
       })
       .cath((err) => {

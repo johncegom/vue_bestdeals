@@ -9,6 +9,7 @@
           </button>
         </div>
         <div class="modal-body">
+        <form action="#" class="was-validated">
           <div class="form-group w-75 m-auto">
             <i class="fas fa-user-alt"></i>
             <label for="email">Email:</label>
@@ -20,8 +21,12 @@
               placeholder="Your email"
               v-model="email"
               @keyup.enter="signin"
+              required
             >
+            
+            <div class="invalid-feedback">Please enter your email..</div>
           </div>
+
           <div class="form-group w-75 m-auto">
             <i class="fas fa-lock"></i>
             <label for="pwd">Password:</label>
@@ -33,11 +38,14 @@
               placeholder="Your password"
               v-model="password"
               @keyup.enter="signin"
+              required
             >
+            <div class="invalid-feedback">Please enter your password.</div>
           </div>
           <div class="m-auto w-75">
             <input type="checkbox" name="remember" id="rememberbox"> Remember me
           </div>
+        </form>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" @click="signin">Sign In</button>
@@ -65,8 +73,11 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           $('#signin').modal('hide');
-          alert("Dang nhap thanh cong!");
-          this.$router.replace('admin');
+          Toast.fire({
+            type: 'success',
+            title: 'Signed in successfully'
+          })
+          this.$router.replace('admin/overview');
 
         })
         .catch(function(error) {
@@ -74,9 +85,15 @@ export default {
           var errorCode = error.code;
           var errorMessage = error.message;
           if (errorCode === "auth/wrong-password") {
-            alert("Wrong password.");
+            Toast.fire({
+              type: 'warning',
+              title: 'Wrong password!'
+            });
           } else {
-            alert(errorMessage);
+            Toast.fire({
+              type: 'warning',
+              title: errorMessage,
+            });
           }
         });
     }

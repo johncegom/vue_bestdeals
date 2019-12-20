@@ -119,6 +119,7 @@
 /* Carousel */
 
 .carousel-item img {
+  object-fit: contain;
   margin: auto;
   max-height: 500px;
   object-fit: contain;

@@ -1,8 +1,6 @@
 <template>
   <div>
     <Header :showcases="showcases"/>
-    <Signin/>
-    <Signup/>
     <Navigation :showcases="showcases"/>
     <div class="wrapper">
       <Carousel :showcases="showcases"/>
@@ -19,8 +17,7 @@ import Carousel from "../components/Carousel";
 import Header from "../components/layout/Header";
 import Navigation from "../components/layout/Navigation";
 import Footer from "../components/layout/Footer";
-import Signin from "../components/Signin.vue";
-import Signup from "../components/Signup.vue";
+import {fb,db} from '../firebase.js';
 
 export default {
   name: "Home",
@@ -29,12 +26,11 @@ export default {
     Carousel,
     Header,
     Navigation,
-    Footer,
-    Signin,
-    Signup
+    Footer
   },
   data() {
     return {
+      test: [],
       showcases: [
         // First showcase
         [
@@ -239,8 +235,13 @@ export default {
           }
         ]
       ]
-    };
-  }
+    }
+  },
+  firestore() {
+		return {
+			test: db.collection('shoes')
+		}
+	}
 };
 </script>
 

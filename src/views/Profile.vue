@@ -3,11 +3,11 @@
 		<div class="container">
 			<div class="row h-100 justify-content-center align-items-center">
 				<div class="col-md-6">
-					<h1>Orders</h1>
-					<h3>View all orders here.</h3>
+					<h1>Profile Settings</h1>
+					<h3>Change your profile here.</h3>
 				</div>
 				<div class="col-md-6">
-					<img class="img-fluid" src="../assets/img/orders.svg" alt="demonstrate">
+					<img class="img-fluid" src="../assets/img/product.svg" alt="demonstrate">
 				</div>
 			</div>
 		</div>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-	name: "Orders",
+	name: "Profile",
 
 }
 </script>

@@ -6,13 +6,19 @@ import ShowcaseDetails from "./views/ShowcaseDetails";
 import Overview from "./views/Overview.vue";
 import Products from "./views/Products.vue";
 import Orders from "./views/Orders.vue";
+import Profile from "./views/Profile.vue";
 import BrandShowcase from "./views/BrandShowcase.vue";
 import { fb } from "./firebase.js";
 
 Vue.use(Router);
 
 const router = new Router({
+  mode: 'history',
   routes: [
+    { 
+      path: '*', 
+      component: NotFoundComponent 
+    },
     {
       path: "/",
       name: "home",
@@ -40,6 +46,11 @@ const router = new Router({
           path: "orders",
           name: "orders",
           component: Orders
+        },
+        {
+          path: "profile",
+          name: "profile",
+          component: Profile
         }
       ]
     },

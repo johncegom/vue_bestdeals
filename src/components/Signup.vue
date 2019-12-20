@@ -21,6 +21,7 @@
                     id="firstname"
                     name="firstname"
                     v-model="firstname"
+                    required
                   >
                 </div>
                 <div class="form-group">
@@ -32,12 +33,13 @@
                     id="lastname"
                     name="lastname"
                     v-model="lastname"
+                    required
                   >
                 </div>
                 <div class="form-group">
                   <i class="fas fa-user-alt"></i>
                   <label for="email">Email Address:</label>
-                  <input type="email" class="form-control" id="email" name="email" v-model="email">
+                  <input type="email" class="form-control" id="email" name="email" v-model="email" required>
                 </div>
                 <div class="form-group">
                   <i class="fas fa-lock"></i>
@@ -48,6 +50,7 @@
                     id="pwd"
                     name="password"
                     v-model="password"
+                    required
                   >
                 </div>
                 <div class="form-group">
@@ -59,6 +62,7 @@
                     id="pwd"
                     name="Password"
                     v-model="confirmpassword"
+                    required
                   >
                 </div>
               </form>
@@ -104,15 +108,24 @@ export default {
         .createUserWithEmailAndPassword(this.user.email, this.user.password)
         .then(() => {
           $("#signup").modal("hide");
-          alert("Dang ky thanh cong!");
+          Toast.fire({
+              type: 'success',
+              title: 'Signed up successfully! You can login now.',
+            });
         })
         .catch(function(error) {
           var errorCode = error.code;
           var errorMessage = error.message;
           if (errorCode == "auth/weak-password") {
-            alert("The password is too weak. ");
+            Toast.fire({
+              type: 'warning',
+              title: 'The password is too weak!',
+            });
           } else {
-            alert(errorMessage);
+            Toast.fire({
+              type: 'warning',
+              title: errorMessage,
+            });
           }
         });
     },
