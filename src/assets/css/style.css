@@ -8,13 +8,11 @@
 }
 
 * {
+  box-sizing: border-box;
+  font-family: arial, Helvetica, sans-serif;
   margin: 0;
 }
 
-html {
-  box-sizing: border-box;
-  font-family: arial, Helvetica, sans-serif;
-}
 
 /* Header */
 
@@ -124,6 +122,7 @@ html {
   object-fit: contain;
   margin: auto;
   max-height: 500px;
+  object-fit: contain;
 }
 
 /* Showcase */
@@ -161,6 +160,7 @@ html {
 .showcase-items div img {
   width: 100%;
   max-height: 200px;
+  object-fit: contain;
 }
 
 .showcase-items div img:hover {
