@@ -9,6 +9,7 @@ import Orders from "./views/Orders.vue";
 import Profile from "./views/Profile.vue";
 import BrandShowcase from "./views/BrandShowcase.vue";
 import { fb } from "./firebase.js";
+import NotFound from "./views/NotFound.vue";
 
 Vue.use(Router);
 
@@ -17,7 +18,8 @@ const router = new Router({
   routes: [
     { 
       path: '*', 
-      component: NotFoundComponent 
+      name: 'notfound',
+      component: NotFound
     },
     {
       path: "/",
