@@ -1,7 +1,12 @@
 <template>
   <div>
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
-      <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" @click="ShowSidebar">
+      <a
+        id="show-sidebar"
+        class="btn btn-sm btn-dark"
+        href="#"
+        @click="ShowSidebar"
+      >
         <i class="fas fa-bars"></i>
       </a>
       <nav id="sidebar" class="sidebar-wrapper">
@@ -20,7 +25,7 @@
                 class="img-responsive img-rounded"
                 src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
                 alt="User picture"
-              >
+              />
             </div>
             <div class="user-info">
               <span class="user-name">
@@ -38,7 +43,11 @@
           <div class="sidebar-item sidebar-search">
             <div>
               <div class="input-group">
-                <input type="text" class="form-control search-menu" placeholder="Search...">
+                <input
+                  type="text"
+                  class="form-control search-menu"
+                  placeholder="Search..."
+                />
                 <div class="input-group-append">
                   <span class="input-group-text">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -90,7 +99,7 @@
       </nav>
       <!-- page-content  -->
       <main class="page-content">
-        <router-view/> 
+        <router-view />
       </main>
       <!-- page-content" -->
     </div>
@@ -99,26 +108,30 @@
 </template>
 
 <script>
-import {fb} from '../firebase.js'
-import $ from 'jquery'
+import { fb } from "../firebase.js";
+import $ from "jquery";
 
 export default {
   name: "Admin",
   methods: {
     logout() {
-      fb.auth().signOut()
-      .then(() => {
-        Toast.fire({
-          type: 'success',
-          title: 'Signed out successfully'
+      fb.auth()
+        .signOut()
+        .then(() => {
+          this.$router.push("/");
+          Toast.fire({
+            type: "success",
+            title: "Signed out successfully"
+          });
         })
-        this.$router.replace('/');
-      })
-      .cath((err) => {
-        alert(err);
-      })
+        .catch(err => {
+          Toast.fire({
+            type: "warning",
+            title: err
+          });
+        });
     },
-    CloseSidebar(){
+    CloseSidebar() {
       $(".page-wrapper").removeClass("toggled");
     },
     ShowSidebar() {
@@ -133,4 +146,3 @@ export default {
   color: white;
 }
 </style>
-

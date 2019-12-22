@@ -22,7 +22,7 @@
                     name="firstname"
                     v-model="firstname"
                     required
-                  >
+                  />
                 </div>
                 <div class="form-group">
                   <i class="fas fa-font"></i>
@@ -34,12 +34,19 @@
                     name="lastname"
                     v-model="lastname"
                     required
-                  >
+                  />
                 </div>
                 <div class="form-group">
                   <i class="fas fa-user-alt"></i>
                   <label for="email">Email Address:</label>
-                  <input type="email" class="form-control" id="email" name="email" v-model="email" required>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    v-model="email"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <i class="fas fa-lock"></i>
@@ -51,7 +58,7 @@
                     name="password"
                     v-model="password"
                     required
-                  >
+                  />
                 </div>
                 <div class="form-group">
                   <i class="fas fa-check"></i>
@@ -63,7 +70,7 @@
                     name="Password"
                     v-model="confirmpassword"
                     required
-                  >
+                  />
                 </div>
               </form>
             </div>
@@ -81,7 +88,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" @click="Signup">Sign Up</button>
+          <button type="submit" class="btn btn-primary" @click="Signup">
+            Sign Up
+          </button>
         </div>
       </div>
     </div>
@@ -89,7 +98,7 @@
 </template>
 
 <script>
-import { fb } from "../firebase.js";
+import { db, fb } from "../firebase.js";
 
 export default {
   name: "Signup",
@@ -105,26 +114,48 @@ export default {
   methods: {
     Signup() {
       fb.auth()
-        .createUserWithEmailAndPassword(this.user.email, this.user.password)
-        .then(() => {
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(user => {
           $("#signup").modal("hide");
-          Toast.fire({
-              type: 'success',
-              title: 'Signed up successfully! You can login now.',
+
+          db.collection("profiles")
+            .doc(user.user.uid)
+            .set({
+              firstname: this.firstname,
+              lastname: this.lastname
+            })
+            .then(function() {
+              Toast.fire({
+                type: "success",
+                title: "Signed up successfully! You can login now."
+              });
+            })
+            .catch(function(error) {
+              let errorMessage = error.message;
+              Toast.fire({
+                type: "warning",
+                title: errorMessage
+              });
             });
+
+          Toast.fire({
+            type: "success",
+            title: "Signed up successfully! You can login now."
+          });
         })
+
         .catch(function(error) {
           var errorCode = error.code;
           var errorMessage = error.message;
           if (errorCode == "auth/weak-password") {
             Toast.fire({
-              type: 'warning',
-              title: 'The password is too weak!',
+              type: "warning",
+              title: "The password is too weak!"
             });
           } else {
             Toast.fire({
-              type: 'warning',
-              title: errorMessage,
+              type: "warning",
+              title: errorMessage
             });
           }
         });
@@ -139,5 +170,3 @@ export default {
   margin-left: 5px;
 }
 </style>
-
-

@@ -11,12 +11,36 @@
 				</div>
 			</div>
 		</div>
+
+		
 	</div>
 </template>
 
 <script>
 export default {
 	name: "Profile",
+	data() {
+    return {
+      profile: {
+				firstname: null,
+				lastname: null,
+				phone: null,
+				address: null
+			}
+    };
+	},
+	
+	firestore() {
+		const user = fb.auth().currentUser;
+		return {
+			profile: db.collection("profiles").doc(user.uid)
+		}
+	},
 
+	methods: {
+		updateProfile() {
+			this.$firestore.profile.update(this.profile);
+		}
+	}
 }
 </script>
