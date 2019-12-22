@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Header/>
-    <Navigation :showcases="showcases"/>
+    <Header :showcases="showcases"/>
     <br>
 
     <div class="row">
@@ -173,13 +172,11 @@
 <script>
 // import Carousel from "../components/Carousel";
 import Header from "../components/layout/Header";
-import Navigation from "../components/layout/Navigation";
 import Footer from "../components/layout/Footer";
 export default {
   name: "ShowcaseDetails",
   components: {
     Header,
-    Navigation,
     // Carousel,
     Footer
   },

@@ -1,31 +1,35 @@
 <template>
-  <header class="header">
-    <button class="hamburger" @click="ShowSidebar()">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="logo">
-      <router-link to="/">
-        <img src="../../assets/img/logo.png" alt="logo">
-      </router-link>
-    </div>
+  <div>
+    <header class="header">
+      <button class="hamburger" @click="ShowSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="logo">
+        <router-link to="/">
+          <img src="../../assets/img/logo.png" alt="logo">
+        </router-link>
+      </div>
 
-    <SearchBar class="hide"/>
-    <Signin />
-    <Signup />
+      <SearchBar class="hide"/>
+      <Signin />
+      <Signup />
 
-    <div class="shoppingcart">
-      <router-link to="/">
-        <i class="fas fa-shopping-cart fa-2x"></i>
-      </router-link>
-    </div>
+      <div class="shoppingcart">
+        <router-link to="/">
+          <i class="fas fa-shopping-cart fa-2x"></i>
+        </router-link>
+      </div>
 
-    <div class="header-btn">
-      <a class="myButton" data-toggle="modal" href="#signin">Sign In</a>
-      <a class="myButton" data-toggle="modal" href="#signup">Sign Up</a>
-    </div>
+      <div class="header-btn">
+        <a class="myButton" data-toggle="modal" href="#signin">Sign In</a>
+        <a class="myButton" data-toggle="modal" href="#signup">Sign Up</a>
+      </div>
 
-    <HamburgerContent :showcases="showcases"/>
-  </header>
+      <HamburgerContent :showcases="showcases"/>
+      
+    </header>
+    <Navigation :showcases="showcases"/>
+  </div>
 </template>
 
 <script>
@@ -34,6 +38,7 @@ import HamburgerContent from "../HamburgerContent";
 import $ from "jquery";
 import Signin from "../Signin.vue";
 import Signup from "../Signup.vue";
+import Navigation from "./Navigation";
 
 
 export default {
@@ -42,7 +47,8 @@ export default {
     SearchBar,
     HamburgerContent,
     Signin,
-    Signup
+    Signup,
+    Navigation
   },
   props: {
     showcases: { type: Array }

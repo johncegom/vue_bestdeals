@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header :showcases="showcases"/>
-    <Navigation :showcases="showcases"/>
 
     <div class="wrapper">
       <h1>{{brand}}</h1>
@@ -96,13 +95,12 @@
 <script>
 // import Showcase from "../components/Showcase";
 import Header from "../components/layout/Header";
-import Navigation from "../components/layout/Navigation";
+
 import Footer from "../components/layout/Footer";
 export default {
   name: "BrandShowcase",
   components: {
     Header,
-    Navigation,
     // Showcase,
     Footer
   },

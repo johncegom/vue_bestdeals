@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header :showcases="showcases"/>
-    <Navigation :showcases="showcases"/>
     <div class="wrapper">
       <Carousel :showcases="showcases"/>
       <Showcase title="Flash Sales" :showcases_s="showcases[0]" :showcases="showcases"/>
@@ -15,9 +14,8 @@
 import Showcase from "../components/Showcase";
 import Carousel from "../components/Carousel";
 import Header from "../components/layout/Header";
-import Navigation from "../components/layout/Navigation";
 import Footer from "../components/layout/Footer";
-import {fb,db} from '../firebase.js';
+import {db} from '../firebase.js';
 
 export default {
   name: "Home",
@@ -25,7 +23,6 @@ export default {
     Showcase,
     Carousel,
     Header,
-    Navigation,
     Footer
   },
   data() {
@@ -81,7 +78,7 @@ export default {
             brand: "Nike",
             title: "Classic Cortez",
             img:
-              "http://www.getacandy.com/images/J5KuX8b1wo8c/Antimicrobial-nike-leather-elite-white-runner-1I7A.jpg",
+              "https://i.ebayimg.com/images/g/7r4AAOSwJ-pa-M2T/s-l640.jpg",
             saleprice: "1.850.000",
             price: "1.900.000",
             sizes: [
@@ -92,7 +89,7 @@ export default {
             brand: "Nike Air Max 1",
             title: "Air Max 1",
             img:
-              "https://cdn5.kicksonfire.com/wp-content/uploads/2018/03/Nike-Air-Max-1-Habanero-Red-2.jpg?x77451",
+              "http://ordixi.com/wp-content/uploads/2019/04/giay-chay-bo-Nike-Air-Max-1-Wolf-Grey-WhiteAH8145-003-5-600x400.jpg",
             saleprice: "2.750.000",
             price: "2.765.000",
             sizes: [
@@ -150,7 +147,7 @@ export default {
             brand: "Adidas",
             title: "NMD R1",
             img:
-              "https://www.adidasirelandsale.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/y/by3123-adidas-nmd-2.jpg",
+              "https://khogiaythethao.vn/wp-content/uploads/2019/02/adidas-nmd-r1-black-sf.jpg",
             saleprice: "2.890.000",
             price: "",
             sizes: [
@@ -183,7 +180,7 @@ export default {
             brand: "New Balance",
             title: "Numeric 505",
             img:
-              "http://www.peverellplumbingandheating.co.uk/images/large/img/NM505infoa3a41626595818b_LRG.jpg",
+              "https://cdn.skatedeluxe.com/images/product_images/3d_images/101698/101698_NewBalanceNumeric_505_1.jpg",
             saleprice: "1.850.000",
             price: "",
             sizes: [

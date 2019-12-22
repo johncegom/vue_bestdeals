@@ -1,39 +1,38 @@
 <template>
   <div>
     <form class="form-inline">
-      <div class="table-cell">
-        <input
-          class="form-control mr-sm-2 input-logo"
-          @keyup.enter="GetSearch"
-          type="text"
-          placeholder="Search..."
-        >
-      </div>
-      <div class="table-cell">
-        <button @click="GetSearch" class="btn btn-outline-light my-2 my-sm-0" type="submit"><img src="../assets/img/search.png" alt="Search img"></button>
-      </div>
+      <input
+        class="form-control mr-sm-2 input-logo"
+        @keyup.enter="GetSearch"
+        type="text"
+        placeholder="Search..."
+      />
+      <button
+        @click="GetSearch"
+        class="btn btn-outline-light my-2 my-sm-0"
+        type="submit"
+      >
+        <img src="../assets/img/search.png" alt="Search img" />
+      </button>
     </form>
   </div>
 </template>
 
 <script>
 export default {
-	name: "SearchBar",
-	data() {
-		return {
-
-		}
-	},
-	methods: {
-		GetSearch(){
-      alert('Under Construction')
-		}
-	}
-}
+  name: "SearchBar",
+  data() {
+    return {};
+  },
+  methods: {
+    GetSearch() {
+      alert("Under Construction");
+    }
+  }
+};
 </script>
 
 <style scoped>
-
 button {
   background: #000;
   display: none;
@@ -53,25 +52,26 @@ button > img:hover {
 }
 
 .form-inline {
-  margin-top: 17px;
-}
-
-.input-logo {  
-background-image:url("../assets/img/search1.png");   
-background-position:right;   
-background-repeat:no-repeat;
-
-}
-
-@media (min-width: 980px) {
-
-button {
-  display: initial;
+  margin-top: 1rem;
 }
 
 .input-logo {
-  background-image: none;
+  background-image: url("../assets/img/search1.png");
+  background-position: right;
+  background-repeat: no-repeat;
 }
+
+@media (min-width: 980px) {
+  button {
+    display: initial;
+  }
+
+  .input-logo {
+    background-image: none;
+  }
+
+  .form-inline .form-control {
+    width: 21rem;
+  }
 }
 </style>
-
