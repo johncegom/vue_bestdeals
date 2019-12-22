@@ -24,11 +24,11 @@
         >
       </router-link>
       <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span aria-hidden="true"><i class="fas fa-chevron-left fa-7x icon-red" aria-hidden="true"></i></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span aria-hidden="true"><i class="fas fa-chevron-right fa-7x icon-red"></i></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
@@ -53,6 +53,10 @@ export default {
 <style scoped>
 .carousel-indicators li {
   background-color: red;
+}
+
+.icon-red {
+  color: red;
 }
 </style>
 
