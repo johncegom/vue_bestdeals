@@ -120,11 +120,11 @@ export default {
           },
           {
             brand: "Converse",
-            title: "Cons Auck Ultra",
+            title: "Chuck Taylor 1970s Low",
             img:
-              "https://www.converse.com.vn/pictures/catalog/products/sneakers/cons/158389c/158389.jpg",
-            saleprice: "900.000",
-            price: "1.300.000",
+              "https://bizweb.dktcdn.net/thumb/1024x1024/100/339/085/products/162058-5.png",
+            saleprice: "1.550.000",
+            price: "1.900.000",
             sizes: [
               40, 41, 42, 43
             ]
